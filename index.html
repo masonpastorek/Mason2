@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>James "Mason" Pastorek</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="light-mode">
+    <button id="theme-toggle" aria-label="Toggle theme">
+        <i class="fas fa-moon"></i>
+    </button>
+
+    <header>
+        <h1>James (Mason) Pastorek</h1>
+        <p>Mechanical Engineering & Software Engineering</p>
+    </header>
+
+    <main>
+        <section class="about-me">
+            <h2>About Me</h2>
+            <div class="education">
+                <h3>Education</h3>
+                <div class="education-item">
+                    <p>I attended <strong>Catholic High School</strong> in Baton Rouge, Louisiana.</p>
+                    <img src="images/chs_logo.png" onerror="this.src='https://placehold.co/150x150/f4f7f6/333?text=Logo'" alt="Catholic High School Logo" class="school-logo">
+                </div>
+                <div class="education-item">
+                    <p>I am currently attending <strong>Louisiana State University (LSU)</strong>, studying <strong>Mechanical Engineering</strong> with a minor in <strong>Software Engineering</strong>.</p>
+                    <img src="images/lsu_logo.png" onerror="this.src='https://placehold.co/150x150/f4f7f6/333?text=LSU+Logo'" alt="LSU Logo" class="school-logo">
+                </div>
+            </div>
+        </section>
+
+        <section class="web-development">
+            <h2>Web Development</h2>
+            <p>I create websites for others. For data collection and inquiries, I utilize my custom data puller:</p>
+            <p style="font-style: italic;">Interested in a website? Submit your details here! (Email, Phone, Description)</p>
+
+            <form id="inquiry-form">
+                <div class="form-group">
+                    <label for="email">Email Address</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="phone">Phone Number</label>
+                    <input type="tel" id="phone" name="phone" required>
+                </div>
+                <div class="form-group">
+                    <label for="description">Project Description</label>
+                    <textarea id="description" name="description" rows="5" required></textarea>
+                </div>
+                <button type="submit">Submit Your Inquiry</button>
+            </form>
+            <div id="form-message" class="hidden"></div>
+        </section>
+
+        <section class="gallery">
+            <h2>My Interests</h2>
+            <div class="image-grid">
+                <img src="images/software_engineering1.jpg" onerror="this.src='https://placehold.co/250x200/f4f7f6/333?text=Software'" alt="Sleek Software Engineering" class="engineering-pic">
+                <img src="images/mechanical_engineering1.jpg" onerror="this.src='https/placehold.co/250x200/f4f7f6/333?text=Mechanical'" alt="Sleek Mechanical Engineering" class="engineering-pic">
+                <img src="images/oil_pump1.jpg" onerror="this.src='https://placehold.co/250x200/f4f7f6/333?text=Oil'" alt="Sleek Oil Pump" class="engineering-pic">
+                <img src="images/software_engineering2.jpg" onerror="this.src='https://placehold.co/250x200/f4f7f6/333?text=Software'" alt="Sleek Software Engineering 2" class="engineering-pic">
+                <img src="images/mechanical_engineering2.jpg" onerror="this.src='https/placehold.co/250x200/f4f7f6/333?text=Mechanical'" alt="Sleek Mechanical Engineering 2" class="engineering-pic">
+                <img src="images/oil_pump2.jpg" onerror="this.src='https://placehold.co/250x200/f4f7f6/333?text=Oil'" alt="Sleek Oil Pump 2" class="engineering-pic">
+            </div>
+            <p class="industry-note">My career aspirations are focused on the <strong>oil industry</strong>.</p>
+        </section>
+    </main>
+
+    <footer>
+        <p>Phone: <a href="tel:2257739701">225-773-9701</a></p>
+        <p>Email: <a href="mailto:masonpastorek@gmail.com">masonpastorek@gmail.com</a></p>
+    </footer>
+
+    <script>
+        // Get references to key elements
+        const themeToggle = document.getElementById('theme-toggle');
+        const body = document.body;
+        const form = document.getElementById('inquiry-form');
+        const formMessage = document.getElementById('form-message');
+
+        // Function to update the toggle button icon
+        const updateToggleButtonIcon = () => {
+            const isDarkMode = body.classList.contains('dark-mode');
+            themeToggle.innerHTML = isDarkMode
+                ? '<i class="fas fa-sun"></i>'
+                : '<i class="fas fa-moon"></i>';
+        };
+
+        // Check for saved theme preference on page load
+        const currentTheme = localStorage.getItem('theme');
+        if (currentTheme) {
+            body.classList.add(currentTheme);
+        } else {
+            // Default to light mode if no preference saved
+            body.classList.add('light-mode');
+        }
+        updateToggleButtonIcon();
+
+        // Event listener for theme toggle button
+        themeToggle.addEventListener('click', () => {
+            if (body.classList.contains('light-mode')) {
+                body.classList.remove('light-mode');
+                body.classList.add('dark-mode');
+                localStorage.setItem('theme', 'dark-mode');
+            } else {
+                body.classList.remove('dark-mode');
+                body.classList.add('light-mode');
+                localStorage.setItem('theme', 'light-mode');
+            }
+            updateToggleButtonIcon();
+        });
+        
+        // Form submission handler
+        form.addEventListener('submit', async (event) => {
+            event.preventDefault();
+
+            formMessage.classList.remove('hidden', 'form-message.success', 'form-message.error');
+            formMessage.classList.add('form-message.loading');
+            formMessage.textContent = 'Submitting inquiry...';
+
+            // IMPORTANT: Replace this placeholder URL with your actual Formspree endpoint or backend URL
+            // Example: 'https://formspree.io/f/your-form-id'
+            const formspreeUrl = 'https://formspree.io/f/mdkddpjy';
+
+            const formData = new FormData(form);
+
+            try {
+                const response = await fetch(formspreeUrl, {
+                    method: 'POST',
+                    body: formData,
+                    headers: {
+                        'Accept': 'application/json'
+                    }
+                });
+                
+                if (response.ok) {
+                    formMessage.classList.remove('form-message.loading');
+                    formMessage.classList.add('form-message.success');
+                    formMessage.textContent = 'Inquiry submitted successfully! Thank you.';
+                    form.reset();
+                } else {
+                    // Log the error response from the server if available
+                    const errorText = await response.text();
+                    console.error('Form submission failed:', response.status, errorText);
+                    formMessage.classList.remove('form-message.loading');
+                    formMessage.classList.add('form-message.error');
+                    formMessage.textContent = 'An error occurred. Please try again.';
+                }
+            } catch (error) {
+                console.error('Form submission failed:', error);
+                formMessage.classList.remove('form-message.loading');
+                formMessage.classList.add('form-message.error');
+                formMessage.textContent = 'An error occurred. Please try again.';
+            }
+        });
+    </script>
+</body>
+</html>
