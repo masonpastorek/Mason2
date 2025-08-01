@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Support My Career</title>
+    <!-- Google Fonts: Inter & Roboto -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <!-- Custom Stylesheet -->
+    <link rel="stylesheet" href="style-projects.css">
+</head>
+<body class="light-mode">
+    <header class="main-header">
+        <div class="header-content">
+            <h1>Support My Career</h1>
+            <nav class="main-nav">
+                <a href="index.html" class="nav-link">Home</a>
+                <a href="projects.html" class="nav-link">Projects</a>
+                <a href="donations.html" class="nav-link support-button">Support</a>
+            </nav>
+        </div>
+        <button id="theme-toggle" aria-label="Toggle theme">
+            <i class="fas fa-moon"></i>
+        </button>
+    </header>
+
+    <main class="main-content">
+        <section class="card donations-card">
+            <h2>How Your Donations Help</h2>
+            <p>
+                Your support directly contributes to my professional development. Donations will be used for:
+            </p>
+            <ul>
+                <li>Purchasing essential software and educational resources to hone my skills.</li>
+                <li>Investing in better hardware to improve my workflow and project delivery time.</li>
+                <li>Allowing me to dedicate more time to personal and client projects.</li>
+            </ul>
+        </section>
+        
+        <section class="card donations-card">
+            <h2>Ways to Contribute</h2>
+            <p>
+                If you appreciate my work and would like to help me on my career journey, you can support me through the platforms below.
+            </p>
+            <div class="donation-links">
+                <!-- Venmo Button -->
+                <a href="https://venmo.com/u/masonpastorek" target="_blank" class="donation-link venmo-link">
+                    Donate with Venmo
+                </a>
+                <!-- Cash App Button -->
+                <a href="https://cash.app/$MasonPastorek" target="_blank" class="donation-link cashapp-link">
+                    Donate with Cash App
+                </a>
+                <!-- Zelle Information -->
+                <a href="mailto:your_zelle_email?subject=Donation&body=I%20would%20like%20to%20send%20a%20donation." class="donation-link zelle-link">
+                    Zelle
+                </a>
+            </div>
+            <p class="zelle-note">
+                *For Zelle, the link will open an email with a pre-filled subject line.
+            </p>
+        </section>
+    </main>
+    
+    <script>
+        // Get references to key elements
+        const themeToggle = document.getElementById('theme-toggle');
+        const body = document.body;
+
+        // Function to update the toggle button icon
+        const updateToggleButtonIcon = () => {
+            const isDarkMode = body.classList.contains('dark-mode');
+            themeToggle.innerHTML = isDarkMode
+                ? '<i class="fas fa-sun"></i>'
+                : '<i class="fas fa-moon"></i>';
+        };
+
+        // Check for saved theme preference on page load
+        const currentTheme = localStorage.getItem('theme');
+        if (currentTheme) {
+            body.classList.add(currentTheme);
+        } else {
+            // Default to light mode for this design
+            body.classList.add('light-mode');
+        }
+        updateToggleButtonIcon();
+
+        // Event listener for theme toggle button
+        themeToggle.addEventListener('click', () => {
+            if (body.classList.contains('light-mode')) {
+                body.classList.remove('light-mode');
+                body.classList.add('dark-mode');
+                localStorage.setItem('theme', 'dark-mode');
+            } else {
+                body.classList.remove('dark-mode');
+                body.classList.add('light-mode');
+                localStorage.setItem('theme', 'light-mode');
+            }
+            updateToggleButtonIcon();
+        });
+    </script>
+</body>
+</html>
