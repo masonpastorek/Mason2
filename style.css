@@ -44,7 +44,7 @@ body.dark-mode {
 /* Hero Header Section */
 .hero-header {
     position: relative;
-    height: 100vh;
+    height: 400px; /* Reduced header height */
     display: flex;
     justify-content: center;
     align-items: center;
@@ -385,6 +385,9 @@ body.dark-mode .support-block {
 
 /* Responsive adjustments */
 @media (max-width: 768px) {
+    .hero-header {
+        height: 300px;
+    }
     .hero-header h1 {
         font-size: 2.5rem;
     }
