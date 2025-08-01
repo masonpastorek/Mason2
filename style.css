@@ -40,7 +40,6 @@ body {
     padding: 0;
     line-height: 1.6;
     transition: background-color 0.3s, color 0.3s;
-    /* This makes the side background images fixed, creating a parallax effect */
     background-attachment: fixed;
     background-repeat: repeat-y;
     background-position: left top;
@@ -60,13 +59,11 @@ body.light-mode footer {
     color: var(--light-text);
 }
 
-/* The top background image has been removed entirely from the header */
 body.light-mode header {
     background-image: none;
     background-size: 100% auto;
     background-repeat: no-repeat;
     background-attachment: scroll;
-    /* The header now has a solid background color instead of an image */
     background-color: var(--light-header-bg);
 }
 
@@ -106,13 +103,11 @@ body.dark-mode footer {
     color: var(--dark-text);
 }
 
-/* The top background image has been removed entirely from the header */
 body.dark-mode header {
     background-image: none;
     background-size: 100% auto;
     background-repeat: no-repeat;
     background-attachment: scroll;
-    /* The header now has a solid background color instead of an image */
     background-color: var(--dark-header-bg);
 }
 
@@ -145,7 +140,6 @@ header {
     padding: 40px 20px;
     box-shadow: 0 2px 5px rgba(0,0,0,0.1);
     position: relative;
-    /* The image will be the background, not a solid color */
     background-color: transparent;
 }
 
@@ -159,48 +153,79 @@ header p {
     margin-top: 0;
 }
 
-/* Styling for the new toggle button */
-#theme-toggle {
+/* --- Styles for the Header Buttons --- */
+
+.header-buttons {
     position: absolute;
     top: 20px;
     right: 20px;
-    width: 44px;
-    height: 44px;
-    border-radius: 50%;
     display: flex;
     align-items: center;
+    gap: 10px;
+    z-index: 100;
+}
+
+/* Base style for the Projects/Home button, which is an <a> tag */
+.header-buttons a.action-button {
+    display: inline-flex;
+    align-items: center;
     justify-content: center;
+    font-weight: bold;
+    padding: 12px 24px;
+    border-radius: 50px; /* Pill shape */
+    text-decoration: none;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    transition: transform 0.3s ease-in-out, background-color 0.3s, color 0.3s;
+}
+
+/* Specific styling for the Theme Toggle button, which is a <button> tag */
+#theme-toggle {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%; /* Circle shape */
+    padding: 0;
     box-shadow: 0 2px 5px rgba(0,0,0,0.2);
     transition: transform 0.3s ease-in-out, background-color 0.3s, color 0.3s;
     border: none;
-    padding: 0;
-    z-index: 100; /* Ensure button is on top */
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
-/* Subtle pulse animation for the toggle button */
+/* Hover effects */
+.header-buttons a.action-button:hover {
+    transform: scale(1.05);
+}
 #theme-toggle:hover {
     transform: scale(1.1) rotate(360deg);
 }
 
-#theme-toggle i {
-    font-size: 1.5em;
+/* Adjust colors based on theme */
+body.light-mode .header-buttons a.action-button {
+    background-color: var(--light-accent);
+    color: white;
 }
 body.light-mode #theme-toggle {
     background-color: var(--light-accent);
     color: white;
+}
+body.dark-mode .header-buttons a.action-button {
+    background-color: var(--dark-accent);
+    color: var(--dark-background);
 }
 body.dark-mode #theme-toggle {
     background-color: var(--dark-accent);
     color: var(--dark-background);
 }
 
+/* Your existing styles below this line */
 main {
     max-width: 900px;
     margin: 20px auto;
     padding: 0 20px;
-    /* Added border-radius to the main content container */
     border-radius: 20px;
-    overflow: hidden; /* This is important to ensure the content stays within the rounded corners */
+    overflow: hidden;
 }
 
 section {
@@ -208,7 +233,6 @@ section {
     padding: 20px;
     border-radius: 8px;
     box-shadow: 0 2px 10px rgba(0,0,0,0.05);
-    /* Set a specific background color to make the rounded effect visible */
     background-color: var(--light-background);
 }
 body.dark-mode section {
@@ -231,7 +255,6 @@ body.dark-mode section {
     margin: 5px 0;
 }
 
-/* Reduced the max-width of the logo to make it smaller */
 .school-logo {
     max-width: 100px;
     height: auto;
@@ -239,7 +262,7 @@ body.dark-mode section {
     display: block;
     margin-left: auto;
     margin-right: auto;
-    border-radius: 8px; /* Added border-radius for rounded corners */
+    border-radius: 8px;
 }
 
 .image-grid {
