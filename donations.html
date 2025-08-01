@@ -11,10 +11,15 @@
     <!-- Font Awesome for icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
     <!-- Custom Stylesheet -->
-    <link rel="stylesheet" href="style-projects.css">
+    <link rel="stylesheet" href="style.css">
 </head>
 <body class="light-mode">
-    <header class="main-header">
+    <header class="hero-header static-background">
+        <div class="background-image-container">
+            <img src="side-light.jpg" alt="Mason Pastorek" class="background-image light-mode-img">
+            <img src="side-dark.jpg" alt="Mason Pastorek" class="background-image dark-mode-img">
+        </div>
+        <div class="overlay"></div>
         <div class="header-content">
             <h1>Support My Career</h1>
             <nav class="main-nav">
@@ -70,13 +75,23 @@
         // Get references to key elements
         const themeToggle = document.getElementById('theme-toggle');
         const body = document.body;
+        const lightModeImage = document.querySelector('.background-image.light-mode-img');
+        const darkModeImage = document.querySelector('.background-image.dark-mode-img');
 
-        // Function to update the toggle button icon
-        const updateToggleButtonIcon = () => {
+        // Function to update the toggle button icon and image
+        const updateThemeUI = () => {
             const isDarkMode = body.classList.contains('dark-mode');
             themeToggle.innerHTML = isDarkMode
                 ? '<i class="fas fa-sun"></i>'
                 : '<i class="fas fa-moon"></i>';
+            
+            if (isDarkMode) {
+                if (lightModeImage) lightModeImage.style.display = 'none';
+                if (darkModeImage) darkModeImage.style.display = 'block';
+            } else {
+                if (lightModeImage) lightModeImage.style.display = 'block';
+                if (darkModeImage) darkModeImage.style.display = 'none';
+            }
         };
 
         // Check for saved theme preference on page load
@@ -87,7 +102,7 @@
             // Default to light mode for this design
             body.classList.add('light-mode');
         }
-        updateToggleButtonIcon();
+        updateThemeUI();
 
         // Event listener for theme toggle button
         themeToggle.addEventListener('click', () => {
@@ -100,7 +115,7 @@
                 body.classList.add('light-mode');
                 localStorage.setItem('theme', 'light-mode');
             }
-            updateToggleButtonIcon();
+            updateThemeUI();
         });
     </script>
 </body>
