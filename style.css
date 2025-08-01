@@ -1,27 +1,25 @@
 /* style.css */
 
-/*
- * This stylesheet centralizes all of the site's styles, using CSS variables
- * for easy theme management.
- */
-
 :root {
     /* Light mode variables */
-    --light-bg: #ffffff;
+    --light-bg: #e0e0e0;
+    --light-card-bg: #ffffff;
     --light-text: #1a1a1a;
-    --light-accent: #007bff;
-    --light-border: #e0e0e0;
-    --light-quote-bg: #f0f0f0;
+    --light-header-bg: #d0d0d0;
+    --light-border: #cccccc;
+    --light-accent: #320077;
+    --light-input-bg: #f5f5f5;
 
     /* Dark mode variables */
     --dark-bg: #1a1a1a;
+    --dark-card-bg: #2a2a2a;
     --dark-text: #e0e0e0;
+    --dark-header-bg: #222222;
+    --dark-border: #444444;
     --dark-accent: #6c8aff;
-    --dark-border: #333333;
-    --dark-quote-bg: #2a2a2a;
+    --dark-input-bg: #333333;
 }
 
-/* Base styles for the body */
 body {
     font-family: 'Inter', sans-serif;
     margin: 0;
@@ -41,185 +39,104 @@ body.dark-mode {
     color: var(--dark-text);
 }
 
-/* Header styling */
-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 20px 40px;
-    border-bottom: 1px solid var(--dark-border);
+/* Main header */
+.main-header {
+    text-align: center;
+    padding: 30px 20px;
+    background-color: var(--light-header-bg);
+    border-bottom: 2px solid var(--light-border);
+    position: relative;
 }
 
-header h1 {
-    margin: 0;
-    font-size: 1.5rem;
+body.dark-mode .main-header {
+    background-color: var(--dark-header-bg);
+    border-color: var(--dark-border);
+}
+
+.main-header h1 {
     font-family: 'Roboto', sans-serif;
     font-weight: 700;
-}
-
-header p {
+    font-size: 2.5rem;
     margin: 0;
-    font-size: 0.9rem;
 }
 
-.header-buttons {
-    display: flex;
-    align-items: center;
-    gap: 15px;
+.main-header p {
+    font-size: 1.2rem;
+    margin: 5px 0 0;
 }
 
-/* Action button styles */
-.action-button {
-    padding: 10px 20px;
-    background-color: var(--dark-accent);
-    color: white;
-    text-decoration: none;
-    border-radius: 5px;
-    font-weight: bold;
-    transition: background-color 0.3s ease;
-}
-
-.action-button:hover {
-    background-color: var(--dark-accent);
-    filter: brightness(1.2);
-}
-
-/* Theme toggle button styles */
-#theme-toggle {
-    background: none;
-    border: none;
-    font-size: 1.25rem;
-    cursor: pointer;
-    color: var(--light-text);
-    transition: color 0.3s ease;
-}
-
-body.dark-mode #theme-toggle {
-    color: var(--dark-text);
-}
-
-/* Main content styling */
-main {
+/* Main content container */
+.main-content {
     max-width: 800px;
-    margin: 0 auto;
-    padding: 20px;
+    margin: 20px auto;
+    padding: 0 20px;
 }
 
-section {
-    margin-bottom: 40px;
-}
-
-h2 {
-    font-size: 2rem;
-    font-weight: 700;
-    border-bottom: 2px solid var(--dark-border);
-    padding-bottom: 10px;
-    margin-top: 40px;
-}
-
-/* Paragraph styles */
-p {
-    font-size: 1rem;
-    color: var(--dark-text);
-}
-
-body.light-mode p {
-    color: var(--light-text);
-}
-
-/* Link styles */
-a {
-    color: var(--dark-accent);
-    text-decoration: none;
-    font-weight: bold;
-    transition: color 0.3s ease;
-}
-
-body.light-mode a {
-    color: var(--light-accent);
-}
-
-a:hover {
-    text-decoration: underline;
-}
-
-/* Web development projects section */
-.project-links {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 15px;
-    margin-top: 20px;
-}
-
-.project-link {
-    padding: 15px 30px;
-    border-radius: 8px;
-    font-weight: 700;
-    text-decoration: none;
-    color: white;
-    background-color: var(--dark-accent);
-    transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
-    text-align: center;
-    flex-grow: 1;
-}
-
-body.light-mode .project-link {
-    background-color: var(--light-accent);
-}
-
-.project-link:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
-    background-color: var(--dark-accent);
-}
-
-body.light-mode .project-link:hover {
-    background-color: var(--light-accent);
-}
-
-.project-description {
-    margin-top: 20px;
-}
-
-/* Education section */
-.school-logo {
-    max-width: 150px;
-    height: auto;
+/* Card styles */
+.card {
+    background-color: var(--light-card-bg);
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     margin-bottom: 20px;
 }
 
-/* Gallery section */
-.image-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 20px;
+body.dark-mode .card {
+    background-color: var(--dark-card-bg);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+.card h2 {
+    font-size: 2rem;
+    font-weight: 700;
+    text-align: center;
+    border-bottom: 2px solid var(--light-border);
+    padding-bottom: 15px;
+    margin-top: 0;
+}
+
+body.dark-mode .card h2 {
+    border-color: var(--dark-border);
+}
+
+/* Education details */
+.education-details {
+    text-align: center;
     margin-top: 20px;
 }
 
-.engineering-pic {
-    width: 100%;
-    height: auto;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+.education-details h3 {
+    font-size: 1.5rem;
+    font-weight: 400;
+    margin-bottom: 10px;
 }
 
-.industry-note {
-    font-style: italic;
-    padding: 20px;
-    background-color: var(--dark-quote-bg);
-    border-left: 5px solid var(--dark-accent);
+.school-logo {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    margin: 15px 0;
     border-radius: 5px;
-    margin-top: 30px;
 }
 
-body.light-mode .industry-note {
-    background-color: var(--light-quote-bg);
-    border-left-color: var(--light-accent);
+/* Web Development section */
+.web-development-card p {
+    text-align: center;
+    font-size: 1.1rem;
 }
 
-/* Contact form section */
-.contact-me {
-    margin-top: 40px;
+.interest-prompt {
+    font-style: italic;
+    color: #888;
+}
+
+body.dark-mode .interest-prompt {
+    color: #bbb;
+}
+
+/* Form styling */
+#contact-form {
+    margin-top: 20px;
 }
 
 .form-group {
@@ -237,64 +154,77 @@ input[type="tel"],
 textarea {
     width: 100%;
     padding: 10px;
-    border: 1px solid var(--dark-border);
-    background-color: var(--dark-bg);
-    color: var(--dark-text);
+    border: 1px solid var(--light-border);
+    background-color: var(--light-input-bg);
+    color: var(--light-text);
     border-radius: 5px;
     box-sizing: border-box;
     transition: border-color 0.3s ease;
 }
 
-body.light-mode input[type="email"],
-body.light-mode input[type="tel"],
-body.light-mode textarea {
-    border: 1px solid var(--light-border);
-    background-color: var(--light-bg);
-    color: var(--light-text);
+body.dark-mode input[type="email"],
+body.dark-mode input[type="tel"],
+body.dark-mode textarea {
+    border-color: var(--dark-border);
+    background-color: var(--dark-input-bg);
+    color: var(--dark-text);
 }
 
-input[type="email"]:focus,
-input[type="tel"]:focus,
+input:focus,
 textarea:focus {
-    border-color: var(--dark-accent);
+    border-color: var(--light-accent);
     outline: none;
 }
 
-body.light-mode input[type="email"]:focus,
-body.light-mode input[type="tel"]:focus,
-body.light-mode textarea:focus {
-    border-color: var(--light-accent);
+body.dark-mode input:focus,
+body.dark-mode textarea:focus {
+    border-color: var(--dark-accent);
 }
 
 button[type="submit"] {
-    display: inline-block;
-    padding: 10px 20px;
-    background-color: var(--dark-accent);
+    display: block;
+    width: 100%;
+    padding: 15px;
+    background-color: var(--light-accent);
     color: white;
     border: none;
     border-radius: 5px;
     font-weight: bold;
+    font-size: 1.2rem;
     cursor: pointer;
     transition: background-color 0.3s ease;
 }
 
-body.light-mode button[type="submit"] {
-    background-color: var(--light-accent);
+body.dark-mode button[type="submit"] {
+    background-color: var(--dark-accent);
 }
 
 button[type="submit"]:hover {
-    background-color: var(--dark-accent);
-    filter: brightness(1.2);
+    filter: brightness(1.1);
 }
 
-body.light-mode button[type="submit"]:hover {
-    background-color: var(--light-accent);
+/* Theme toggle button */
+#theme-toggle {
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    color: var(--light-text);
 }
 
+body.dark-mode #theme-toggle {
+    color: var(--dark-text);
+}
+
+/* Form message */
 .form-message {
-    margin-top: 10px;
+    margin-top: 15px;
     padding: 10px;
     border-radius: 5px;
+    text-align: center;
     opacity: 0;
     transition: opacity 0.5s ease;
 }
@@ -317,22 +247,18 @@ body.light-mode button[type="submit"]:hover {
     opacity: 1;
 }
 
-/* Footer styling */
-footer {
-    text-align: center;
-    padding: 20px;
-    border-top: 1px solid var(--dark-border);
-    margin-top: 40px;
-}
-
 /* Responsive adjustments */
 @media (max-width: 768px) {
-    header {
-        padding: 15px 20px;
-        flex-direction: column;
-        gap: 10px;
+    .main-header {
+        padding: 20px 10px;
     }
-    .header-buttons {
-        justify-content: center;
+    .main-header h1 {
+        font-size: 2rem;
+    }
+    .main-header p {
+        font-size: 1rem;
+    }
+    .card {
+        padding: 20px;
     }
 }
