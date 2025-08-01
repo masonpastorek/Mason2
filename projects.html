@@ -3,105 +3,50 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Projects</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <title>Mason Pastorek | Projects</title>
+    <!-- Google Fonts: Roboto & Inter -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
-    <!-- Links to your main stylesheet for consistent themes -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <!-- Link to the custom stylesheet -->
     <link rel="stylesheet" href="style.css">
-    <style>
-        /* This is a simple, modern stylesheet for the projects page, ensuring it blends with your existing design. */
-        .project-links {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 20px;
-            margin-top: 30px;
-        }
-
-        .project-card {
-            background-color: var(--light-quote-bg); /* Use a card-like background from your theme */
-            padding: 25px;
-            border-radius: 10px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            text-decoration: none;
-            color: inherit;
-            text-align: left;
-            display: block; /* Make the entire card clickable */
-        }
-        
-        body.dark-mode .project-card {
-            background-color: var(--dark-quote-bg);
-        }
-
-        .project-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 8px 12px rgba(0, 0, 0, 0.15);
-        }
-
-        .project-card h3 {
-            font-size: 1.5rem;
-            margin-bottom: 5px;
-        }
-
-        .project-card p {
-            font-size: 1rem;
-            color: var(--light-text);
-        }
-        
-        body.dark-mode .project-card p {
-            color: var(--dark-text);
-        }
-
-        /* Responsive adjustments */
-        @media (max-width: 768px) {
-            .project-card {
-                padding: 20px;
-            }
-            .project-card h3 {
-                font-size: 1.25rem;
-            }
-        }
-    </style>
 </head>
-<body class="light-mode">
+<body class="dark-mode">
+
     <header>
-        <h1>Projects</h1>
-        <p>A collection of my work.</p>
+        <h1>Mason Pastorek | Projects</h1>
         <div class="header-buttons">
-            <!-- This button links back to the main page -->
             <a href="index.html" class="action-button">Home</a>
-            
             <button id="theme-toggle" aria-label="Toggle theme">
-                <i class="fas fa-moon"></i>
+                <i class="fas fa-sun"></i>
             </button>
         </div>
     </header>
 
     <main>
-        <!-- The main content for projects is now in a consistent section format -->
-        <section>
-            <h2>My Projects</h2>
-            <p>Here you can find links to my various projects. I have untapped potential with coding. If you are interested in a website, I aim to please the customer with any suggestions or ideas.</p>
+        <section class="web-development">
+            <h2>Web Development Projects</h2>
             <div class="project-links">
-                <!-- Project card 1 -->
-                <a href="https://masonpastorek.com" target="_blank" class="project-card">
-                    <h3>Masonpastorek.com</h3>
-                    <p>This is my personal business website that I coded to promote my software construction and pressure washing services as well as future endeavors.</p>
+                <a href="https://masonpastorek.com" target="_blank" class="project-link">
+                    masonpastorek.com
                 </a>
-                
-                <!-- Project card 2 -->
-                <a href="https://gs-new.vercel.app/" target="_blank" class="project-card">
-                    <h3>Geaux Shine</h3>
-                    <p>This is my pressure washing business website that I coded myself to promote and get data for my pressure washing services.</p>
+                <a href="https://geauxshine.com" target="_blank" class="project-link">
+                    geauxshine.com
                 </a>
-                
-                <!-- You can add more project links here -->
-                <a href="#" target="_blank" class="project-card">
-                    <h3>Future Project</h3>
-                    <p>I have many ideas and not enough time. Coming soon....</p>
+                <a href="donations.html" target="_blank" class="project-link">
+                    Donations
                 </a>
+            </div>
+            
+            <div class="project-description">
+                <p>
+                    Throughout my career, I've had the pleasure of developing several projects, ranging from simple static sites to complex web applications. These projects highlight my ability to write clean, efficient code and create seamless user experiences.
+                </p>
+                <p>
+                    My portfolio is a testament to my commitment to continuous learning and my passion for building. I'm proficient in languages and frameworks like JavaScript, React, and various backend technologies.
+                </p>
             </div>
         </section>
     </main>
@@ -129,8 +74,8 @@
         if (currentTheme) {
             body.classList.add(currentTheme);
         } else {
-            // Default to light mode if no preference saved
-            body.classList.add('light-mode');
+            // Default to dark mode if no preference saved
+            body.classList.add('dark-mode');
         }
         updateToggleButtonIcon();
 
@@ -150,4 +95,3 @@
     </script>
 </body>
 </html>
-
