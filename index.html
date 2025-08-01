@@ -47,6 +47,16 @@
             padding-top: 100px;
             padding-bottom: 100px;
         }
+        .side-banner-light {
+            background-image: url('images/side-light.jpg');
+            background-size: cover;
+            background-position: center;
+        }
+        .side-banner-dark {
+            background-image: url('images/side-dark.jpg');
+            background-size: cover;
+            background-position: center;
+        }
     </style>
 </head>
 <body class="light bg-white text-gray-900 transition-colors duration-300">
@@ -55,8 +65,8 @@
     <header class="fixed w-full z-50 bg-white dark:bg-[#0d1117] bg-opacity-90 dark:bg-opacity-90 backdrop-blur-sm shadow-md transition-colors duration-300">
         <nav class="max-w-7xl mx-auto flex justify-between items-center py-4 px-6 md:px-8">
             <div class="flex items-center space-x-4">
-                <!-- Placeholder for logo. You can replace with your actual logo URL -->
-                <img src="https://placehold.co/50x50/111827/ffffff?text=Logo" alt="Logo" class="rounded-full h-10 w-10">
+                <!-- Updated logo path -->
+                <img src="images/lsu_logo.png" alt="LSU Logo" class="rounded-full h-10 w-10">
                 <a href="index.html" class="font-bold text-lg hover:text-blue-500 transition-colors duration-300">My Portfolio</a>
             </div>
             
@@ -94,8 +104,8 @@
     </header>
 
     <!-- Static Vertical Banner -->
-    <div id="side-banner" class="fixed top-0 left-0 w-24 md:w-32 lg:w-40 h-full z-40 shadow-lg transition-colors duration-300 bg-white dark:bg-[#1f2937]">
-        <!-- You can place content here if you want, e.g., a logo or text -->
+    <div id="side-banner" class="fixed top-0 left-0 w-24 md:w-32 lg:w-40 h-full z-40 shadow-lg transition-colors duration-300">
+        <!-- This banner's background image will be set dynamically by JavaScript -->
     </div>
     
     <main class="ml-24 md:ml-32 lg:ml-40 pt-20">
@@ -123,7 +133,7 @@
                     </div>
                     <div class="flex justify-center md:justify-end">
                         <!-- Placeholder for a personal image -->
-                        <img src="https://scontent-hou1-1.cdninstagram.com/v/t51.2885-19/521439131_18506502223036516_4060928788126323612_n.jpg?stp=dst-jpg_s150x150_tt6&efg=eyJ2ZW5jb2RlX3RhZyI6InByb2ZpbGVfcGljLmRqYW5nby41NTAuYzIifQ&_nc_ht=scontent-hou1-1.cdninstagram.com&_nc_cat=104&_nc_oc=Q6cZ2QGn1V2leBrSy8Zuj-HnYuVBX0MU6pdCKqsa_je5z2d9iwsaVdiVKY2CMiylWiKVMyJOUP1G7ltc5E2X95ODqZ8J&_nc_ohc=XAjH-Xqw5pMQ7kNvwF0GbN1&_nc_gid=7YPGp4bt3YtrfawjPWDxfg&edm=ACE-g0gBAAAA&ccb=7-5&oh=00_AfRAXs2JZ979ZYj9wulByYwOOzm902QFopD5qCNaDoBy2A&oe=68922E54&_nc_sid=b15361">
+                        <img src="https://placehold.co/400x400/2952A3/FFFFFF?text=Personal+Photo" alt="James (Mason) Pastorek" class="rounded-3xl shadow-xl w-full max-w-sm">
                     </div>
                 </div>
             </div>
@@ -134,21 +144,21 @@
             <div class="max-w-7xl mx-auto w-full text-center">
                 <h2 class="text-3xl md:text-5xl font-bold mb-12">My Interests</h2>
                 <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-                    <!-- Interest Card 1 -->
+                    <!-- Interest Card 1 - Software Engineering -->
                     <div class="bg-gray-100 dark:bg-[#161b22] rounded-2xl shadow-lg p-6 flex flex-col items-center text-center transition-transform duration-300 hover:scale-105">
-                        <img src="https://placehold.co/400x250/2952A3/FFFFFF?text=Software" alt="Software Engineering" class="rounded-lg mb-4">
+                        <img src="images/software_engineering1.jpg" alt="Software Engineering" class="rounded-lg mb-4">
                         <h3 class="text-xl md:text-2xl font-bold">Software Engineering</h3>
                         <p class="mt-2 text-gray-700 dark:text-gray-400">Building elegant and efficient software solutions.</p>
                     </div>
-                    <!-- Interest Card 2 -->
+                    <!-- Interest Card 2 - Mechanical Engineering -->
                     <div class="bg-gray-100 dark:bg-[#161b22] rounded-2xl shadow-lg p-6 flex flex-col items-center text-center transition-transform duration-300 hover:scale-105">
-                        <img src="https://placehold.co/400x250/000000/FFFFFF?text=Mechanical" alt="Mechanical Engineering" class="rounded-lg mb-4">
+                        <img src="images/mechanical_engineering1.jpg" alt="Mechanical Engineering" class="rounded-lg mb-4">
                         <h3 class="text-xl md:text-2xl font-bold">Mechanical Engineering</h3>
                         <p class="mt-2 text-gray-700 dark:text-gray-400">Designing and analyzing physical systems and machines.</p>
                     </div>
-                    <!-- Interest Card 3 -->
+                    <!-- Interest Card 3 - Oil Industry -->
                     <div class="bg-gray-100 dark:bg-[#161b22] rounded-2xl shadow-lg p-6 flex flex-col items-center text-center transition-transform duration-300 hover:scale-105">
-                        <img src="https://placehold.co/400x250/2952A3/FFFFFF?text=Oil+Industry" alt="Oil Industry" class="rounded-lg mb-4">
+                        <img src="images/oil_pump1.jpg" alt="Oil Industry" class="rounded-lg mb-4">
                         <h3 class="text-xl md:text-2xl font-bold">Oil Industry</h3>
                         <p class="mt-2 text-gray-700 dark:text-gray-400">My career aspirations are focused on the oil and gas sector.</p>
                     </div>
@@ -165,20 +175,21 @@
     <script>
         // Check for theme in localStorage and apply it
         const updateTheme = () => {
+            const sideBanner = document.getElementById('side-banner');
             if (localStorage.getItem('theme') === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
                 document.documentElement.classList.add('dark');
                 document.documentElement.classList.remove('light');
                 document.getElementById('sun-icon').classList.add('hidden');
                 document.getElementById('moon-icon').classList.remove('hidden');
-                document.getElementById('side-banner').classList.add('bg-[#1f2937]');
-                document.getElementById('side-banner').classList.remove('bg-white');
+                sideBanner.classList.add('side-banner-dark');
+                sideBanner.classList.remove('side-banner-light');
             } else {
                 document.documentElement.classList.add('light');
                 document.documentElement.classList.remove('dark');
                 document.getElementById('sun-icon').classList.remove('hidden');
                 document.getElementById('moon-icon').classList.add('hidden');
-                document.getElementById('side-banner').classList.add('bg-white');
-                document.getElementById('side-banner').classList.remove('bg-[#1f2937]');
+                sideBanner.classList.add('side-banner-light');
+                sideBanner.classList.remove('side-banner-dark');
             }
         };
 
@@ -187,11 +198,8 @@
 
         // Theme toggle logic
         document.getElementById('theme-toggle').addEventListener('click', function() {
-            if (document.documentElement.classList.contains('dark')) {
-                localStorage.setItem('theme', 'dark');
-            } else {
-                localStorage.setItem('theme', 'light');
-            }
+            const currentTheme = document.documentElement.classList.contains('dark') ? 'light' : 'dark';
+            localStorage.setItem('theme', currentTheme);
             updateTheme();
         });
 
