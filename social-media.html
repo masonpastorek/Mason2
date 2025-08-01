@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Social Media Marketing</title>
+    <!-- Google Fonts: Inter & Roboto -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <!-- Custom Stylesheet -->
+    <link rel="stylesheet" href="style-projects.css">
+</head>
+<body class="light-mode">
+    <header class="main-header">
+        <div class="header-content">
+            <h1>Social Media Marketing</h1>
+            <nav class="main-nav">
+                <a href="index.html" class="nav-link">Home</a>
+                <a href="projects.html" class="nav-link">Projects</a>
+                <a href="donations.html" class="nav-link support-button">Support</a>
+                <a href="social-media.html" class="nav-link">Social Media Marketing</a>
+            </nav>
+        </div>
+        <button id="theme-toggle" aria-label="Toggle theme">
+            <i class="fas fa-moon"></i>
+        </button>
+    </header>
+
+    <main class="main-content">
+        <section class="card">
+            <h2>TikTok Marketing</h2>
+            <p>
+                As a social media marketer, I specialize in creating viral and engaging content for TikTok. My strategy focuses on understanding trends, building a strong brand voice, and maximizing reach to connect with your target audience. I have experience in both organic and paid campaigns that drive real results and create lasting community engagement.
+            </p>
+        </section>
+
+        <section class="projects-grid">
+            <!-- TikTok Project 1 -->
+            <a href="https://www.tiktok.com/@your_tiktok_username_1" target="_blank" rel="noopener noreferrer" class="project-block">
+                <i class="fab fa-tiktok" style="font-size: 2.5rem; margin-bottom: 10px;"></i>
+                <h3>TikTok Project 1</h3>
+            </a>
+
+            <!-- TikTok Project 2 -->
+            <a href="https://www.tiktok.com/@your_tiktok_username_2" target="_blank" rel="noopener noreferrer" class="project-block">
+                <i class="fab fa-tiktok" style="font-size: 2.5rem; margin-bottom: 10px;"></i>
+                <h3>TikTok Project 2</h3>
+            </a>
+            
+            <!-- Snapchat Link -->
+            <a href="https://www.snapchat.com/add/your_snapchat_username" target="_blank" rel="noopener noreferrer" class="project-block">
+                <i class="fab fa-snapchat-ghost" style="font-size: 2.5rem; margin-bottom: 10px;"></i>
+                <h3>Snapchat</h3>
+            </a>
+            
+            <!-- Instagram Link -->
+            <a href="https://www.instagram.com/your_instagram_username" target="_blank" rel="noopener noreferrer" class="project-block">
+                <i class="fab fa-instagram" style="font-size: 2.5rem; margin-bottom: 10px;"></i>
+                <h3>Instagram</h3>
+            </a>
+        </section>
+    </main>
+
+    <script>
+        // Get references to key elements
+        const themeToggle = document.getElementById('theme-toggle');
+        const body = document.body;
+
+        // Function to update the toggle button icon
+        const updateToggleButtonIcon = () => {
+            const isDarkMode = body.classList.contains('dark-mode');
+            themeToggle.innerHTML = isDarkMode
+                ? '<i class="fas fa-sun"></i>'
+                : '<i class="fas fa-moon"></i>';
+        };
+
+        // Check for saved theme preference on page load
+        const currentTheme = localStorage.getItem('theme');
+        if (currentTheme) {
+            body.classList.add(currentTheme);
+        } else {
+            // Default to light mode for this design
+            body.classList.add('light-mode');
+        }
+        updateToggleButtonIcon();
+
+        // Event listener for theme toggle button
+        themeToggle.addEventListener('click', () => {
+            if (body.classList.contains('light-mode')) {
+                body.classList.remove('light-mode');
+                body.classList.add('dark-mode');
+                localStorage.setItem('theme', 'dark-mode');
+            } else {
+                body.classList.remove('dark-mode');
+                body.classList.add('light-mode');
+                localStorage.setItem('theme', 'light-mode');
+            }
+            updateToggleButtonIcon();
+        });
+    </script>
+</body>
+</html>
