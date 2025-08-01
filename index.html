@@ -1,49 +1,133 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>James "Mason" Pastorek</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>James (Mason) Pastorek</title>
+    <!-- Google Fonts: Inter & Roboto -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <!-- Custom Stylesheet -->
+    <link rel="stylesheet" href="style-old.css">
 </head>
 <body class="light-mode">
-    <button id="theme-toggle" aria-label="Toggle theme">
-        <i class="fas fa-moon"></i>
-    </button>
+    <header class="main-header">
+        <h1>James (Mason) Pastorek</h1>
+        <p>Mechanical Engineering & Software Engineering</p>
+        <button id="theme-toggle" aria-label="Toggle theme">
+            <i class="fas fa-moon"></i>
+        </button>
+    </header>
 
-    <header>
-        <h1>James (Mason) Pastorek</h1>
-        <p>Mechanical Engineering & Software Engineering</p>
-    </header>
+    <main class="main-content">
+        <section class="card about-me-card">
+            <h2>About Me</h2>
+            <div class="education-details">
+                <h3>Education</h3>
+                <p>I attended Catholic High School in Baton Rouge, Louisiana.</p>
+                <img src="https://placehold.co/100x100/orange/white?text=C" alt="Catholic High School logo" class="school-logo">
+                <p>I am currently attending Louisiana State University (LSU), studying Mechanical Engineering with a minor in Software Engineering</p>
+            </div>
+        </section>
+        
+        <section class="card web-development-card">
+            <h2>Web Development</h2>
+            <p>
+                I create websites for others. For data collection and inquiries, I utilize my custom data puller.
+            </p>
+            <p class="interest-prompt">
+                Interested in a website? Submit your details here: (Email, Phone, Description)
+            </p>
+            
+            <form id="contact-form">
+                <div class="form-group">
+                    <label for="email">Email Address</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="phone">Phone Number</label>
+                    <input type="tel" id="phone" name="phone">
+                </div>
+                <div class="form-group">
+                    <label for="description">Project Description</label>
+                    <textarea id="description" name="description" rows="5" required></textarea>
+                </div>
+                <button type="submit">Submit Your Inquiry</button>
+            </form>
+            <p id="form-message" class="form-message"></p>
+        </section>
+    </main>
+    
+    <script>
+        // Get references to key elements
+        const themeToggle = document.getElementById('theme-toggle');
+        const body = document.body;
 
-    <main>
-        <section class="about-me">
-            <h2>About Me</h2>
-            <div class="education">
-                <h3>Education</h3>
-                <div class="education-item">
-                    <p>I attended <strong>Catholic High School</strong> in Baton Rouge, Louisiana.</p>
-                    <img src="images/chs_logo.png" onerror="this.src='https://placehold.co/150x150/f4f7f6/333?text=Logo'" alt="Catholic High School Logo" class="school-logo">
-                </div>
-                <div class="education-item">
-                    <p>I am currently attending <strong>Louisiana State University (LSU)</strong>, studying <strong>Mechanical Engineering</strong> with a minor in <strong>Software Engineering</strong>.</p>
-                    <img src="images/lsu_logo.png" onerror="this.src='https://placehold.co/150x150/f4f7f6/333?text=LSU+Logo'" alt="LSU Logo" class="school-logo">
-                </div>
-            </div>
-        </section>
+        // Function to update the toggle button icon
+        const updateToggleButtonIcon = () => {
+            const isDarkMode = body.classList.contains('dark-mode');
+            themeToggle.innerHTML = isDarkMode
+                ? '<i class="fas fa-sun"></i>'
+                : '<i class="fas fa-moon"></i>';
+        };
 
-        <section class="web-development">
-            <h2>Web Development</h2>
-            <p>I create websites for others. For data collection and inquiries, I utilize my custom data puller:</p>
-            <p style="font-style: italic;">Interested in a website? Submit your details here! (Email, Phone, Description)</p>
+        // Check for saved theme preference on page load
+        const currentTheme = localStorage.getItem('theme');
+        if (currentTheme) {
+            body.classList.add(currentTheme);
+        } else {
+            // Default to light mode for this design
+            body.classList.add('light-mode');
+        }
+        updateToggleButtonIcon();
 
-            <form id="inquiry-form">
-                <div class="form-group">
-                    <label for="email">Email Address</label>
-                    <input type="email" id="email" name="email" required>
-                </div>
-                <div class="form
+        // Event listener for theme toggle button
+        themeToggle.addEventListener('click', () => {
+            if (body.classList.contains('light-mode')) {
+                body.classList.remove('light-mode');
+                body.classList.add('dark-mode');
+                localStorage.setItem('theme', 'dark-mode');
+            } else {
+                body.classList.remove('dark-mode');
+                body.classList.add('light-mode');
+                localStorage.setItem('theme', 'light-mode');
+            }
+            updateToggleButtonIcon();
+        });
+
+        // Contact Form Submission
+        const contactForm = document.getElementById('contact-form');
+        const formMessage = document.getElementById('form-message');
+
+        contactForm.addEventListener('submit', async (e) => {
+            e.preventDefault();
+
+            formMessage.textContent = 'Sending message...';
+            formMessage.classList.remove('success', 'error');
+            formMessage.classList.add('loading');
+            formMessage.style.opacity = '1';
+
+            // Simulate a network request
+            await new Promise(resolve => setTimeout(resolve, 2000));
+
+            // In a real application, you would send the data to a server here.
+            // For this example, we'll just show a success message.
+            const success = true; // Change to false to test the error case
+
+            if (success) {
+                formMessage.textContent = 'Message sent successfully!';
+                formMessage.classList.remove('loading');
+                formMessage.classList.add('success');
+                contactForm.reset();
+            } else {
+                formMessage.textContent = 'Failed to send message. Please try again.';
+                formMessage.classList.remove('loading');
+                formMessage.classList.add('error');
+            }
+        });
+    </script>
+</body>
+</html>
