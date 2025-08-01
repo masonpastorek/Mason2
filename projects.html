@@ -124,83 +124,46 @@
 
 
 
-    <!-- Theme Toggle and Navigation -->
+      <!-- Theme Toggle and Navigation -->
+    <header class="fixed w-full z-50 bg-white dark:bg-[#0d1117] bg-opacity-90 dark:bg-opacity-90 backdrop-blur-sm shadow-md transition-colors duration-300">
+        <nav class="max-w-7xl mx-auto flex justify-between items-center py-4 px-6 md:px-8">
+            <div class="flex items-center space-x-4">
+                <!-- Updated logo path -->
+                <a href="index.html" class="font-bold text-lg hover:text-blue-500 transition-colors duration-300">My Portfolio</a>
+            </div>
+            
+            <div class="hidden md:flex items-center space-x-4">
+                <a href="index.html" class="nav-button bg-black text-white px-4 py-2 rounded-full font-semibold hover:bg-gray-800 dark:bg-white dark:text-black dark:hover:bg-gray-200 transition-colors duration-300">Home</a>
+                <a href="projects.html" class="nav-button bg-black text-white px-4 py-2 rounded-full font-semibold hover:bg-gray-800 dark:bg-white dark:text-black dark:hover:bg-gray-200 transition-colors duration-300">Projects</a>
+                <a href="donations.html" class="nav-button bg-black text-white px-4 py-2 rounded-full font-semibold hover:bg-gray-800 dark:bg-white dark:text-black dark:hover:bg-gray-200 transition-colors duration-300">Support</a>
+            </div>
 
-    <header class="fixed w-full z-50 bg-white dark:bg-[#0d1117] bg-opacity-90 dark:bg-opacity-90 backdrop-blur-sm shadow-md transition-colors duration-300">
+            <div class="flex items-center space-x-4">
+                <!-- Theme toggle button -->
+                <button id="theme-toggle" class="p-2 rounded-full focus:outline-none transition-colors duration-300">
+                    <svg id="sun-icon" class="h-6 w-6 text-yellow-500" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4.394 1.606a1 1 0 00-1.414 0l-.707.707a1 1 0 001.414 1.414l.707-.707a1 1 0 000-1.414zM18 10a1 1 0 01-1 1h-1a1 1 0 110-2h1a1 1 0 011 1zM3 10a1 1 0 01-1 1H2a1 1 0 110-2h1a1 1 0 011 1zM10 15a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zm4.394-1.606a1 1 0 00-1.414 0l-.707.707a1 1 0 001.414 1.414l.707-.707a1 1 0 000-1.414zM5.606 5.606a1 1 0 001.414 0l.707-.707a1 1 0 00-1.414-1.414l-.707.707a1 1 0 000 1.414zM5.606 14.394a1 1 0 001.414 0l.707-.707a1 1 0 00-1.414-1.414l-.707.707a1 1 0 000 1.414z"/>
+                    </svg>
+                    <svg id="moon-icon" class="h-6 w-6 text-gray-500 hidden" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8 0 1010.586 10.586z"/>
+                    </svg>
+                </button>
 
-        <nav class="max-w-7xl mx-auto flex justify-between items-center py-4 px-6 md:px-8">
-
-            <div class="flex items-center space-x-4">
-
-                <!-- Updated logo path -->
-
-                
-
-                <a href="index.html" 
-
-            <div class="hidden md:flex items-center space-x-4">
-
-                <a href="index.html" class="nav-button bg-black text-white px-4 py-2 rounded-full font-semibold hover:bg-gray-800 dark:bg-white dark:text-black dark:hover:bg-gray-200 transition-colors duration-300">Home</a>
-
-                <a href="projects.html" class="nav-button bg-black text-white px-4 py-2 rounded-full font-semibold hover:bg-gray-800 dark:bg-white dark:text-black dark:hover:bg-gray-200 transition-colors duration-300">Projects</a>
-
-                <a href="donations.html" class="nav-button bg-black text-white px-4 py-2 rounded-full font-semibold hover:bg-gray-800 dark:bg-white dark:text-black dark:hover:bg-gray-200 transition-colors duration-300">Support</a>
-
-            </div>
-
-
-
-            <div class="flex items-center space-x-4">
-
-                <!-- Theme toggle button -->
-
-                <button id="theme-toggle" class="p-2 rounded-full focus:outline-none transition-colors duration-300">
-
-                    <svg id="sun-icon" class="h-6 w-6 text-yellow-500" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-
-                        <path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4.394 1.606a1 1 0 00-1.414 0l-.707.707a1 1 0 001.414 1.414l.707-.707a1 1 0 000-1.414zM18 10a1 1 0 01-1 1h-1a1 1 0 110-2h1a1 1 0 011 1zM3 10a1 1 0 01-1 1H2a1 1 0 110-2h1a1 1 0 011 1zM10 15a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zm4.394-1.606a1 1 0 00-1.414 0l-.707.707a1 1 0 001.414 1.414l.707-.707a1 1 0 000-1.414zM5.606 5.606a1 1 0 001.414 0l.707-.707a1 1 0 00-1.414-1.414l-.707.707a1 1 0 000 1.414zM5.606 14.394a1 1 0 001.414 0l.707-.707a1 1 0 00-1.414-1.414l-.707.707a1 1 0 000 1.414z"/>
-
-                    </svg>
-
-                    <svg id="moon-icon" class="h-6 w-6 text-gray-500 hidden" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-
-                        <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"/>
-
-                    </svg>
-
-                </button>
-
-
-
-                <!-- Mobile menu button -->
-
-                <button id="mobile-menu-button" class="md:hidden p-2 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500">
-
-                    <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
-
-                    </svg>
-
-                </button>
-
-            </div>
-
-        </nav>
-
-        <!-- Mobile menu -->
-
-        <div id="mobile-menu" class="hidden md:hidden absolute w-full bg-white dark:bg-[#0d1117] shadow-md transition-colors duration-300">
-
-            <a href="index.html" class="block py-3 px-6 text-center hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors duration-300">Home</a>
-
-            <a href="projects.html" class="block py-3 px-6 text-center hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors duration-300">Projects</a>
-
-            <a href="donations.html" class="block py-3 px-6 text-center hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors duration-300">Support</a>
-
-        </div>
-
-    </header>
+                <!-- Mobile menu button -->
+                <button id="mobile-menu-button" class="md:hidden p-2 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500">
+                    <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                    </svg>
+                </button>
+            </div>
+        </nav>
+        <!-- Mobile menu -->
+        <div id="mobile-menu" class="hidden md:hidden absolute w-full bg-white dark:bg-[#0d1117] shadow-md transition-colors duration-300">
+            <a href="index.html" class="block py-3 px-6 text-center hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors duration-300">Home</a>
+            <a href="projects.html" class="block py-3 px-6 text-center hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors duration-300">Projects</a>
+            <a href="donations.html" class="block py-3 px-6 text-center hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors duration-300">Support</a>
+        </div>
+    </header>
 
 
 
