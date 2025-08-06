@@ -4,11 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>James (Mason) Pastorek - Home</title>
-    <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Font Awesome for icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
-    <!-- Google Font - Inter -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
@@ -57,25 +54,13 @@
             background-size: cover;
             background-position: center;
         }
-      .personal-photo-placeholder {
-    /* The image itself will now provide the content, so we remove these placeholder styles. */
-    /* background-color: #3b82f6; */
-    /* display: flex; */
-    /* align-items: center; */
-    /* justify-content: center; */
-    /* color: white; */
-    /* font-size: 1.5rem; */
-    /* text-align: center; */
-        }
     </style>
 </head>
 <body class="light bg-white text-gray-900 transition-colors duration-300">
 
-    <!-- Theme Toggle and Navigation -->
     <header class="fixed w-full z-50 bg-white dark:bg-[#0d1117] bg-opacity-90 dark:bg-opacity-90 backdrop-blur-sm shadow-md transition-colors duration-300">
         <nav class="max-w-7xl mx-auto flex justify-between items-center py-4 px-6 md:px-8">
             <div class="flex items-center space-x-4">
-                <!-- Updated logo path -->
                 <a href="index.html" class="font-bold text-lg hover:text-blue-500 transition-colors duration-300">My Portfolio</a>
             </div>
             
@@ -87,7 +72,6 @@
             </div>
 
             <div class="flex items-center space-x-4">
-                <!-- Theme toggle button -->
                 <button id="theme-toggle" class="p-2 rounded-full focus:outline-none transition-colors duration-300">
                     <svg id="sun-icon" class="h-6 w-6 text-yellow-500" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
                         <path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4.394 1.606a1 1 0 00-1.414 0l-.707.707a1 1 0 001.414 1.414l.707-.707a1 1 0 000-1.414zM18 10a1 1 0 01-1 1h-1a1 1 0 110-2h1a1 1 0 011 1zM3 10a1 1 0 01-1 1H2a1 1 0 110-2h1a1 1 0 011 1zM10 15a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zm4.394-1.606a1 1 0 00-1.414 0l-.707.707a1 1 0 001.414 1.414l.707-.707a1 1 0 000-1.414zM5.606 5.606a1 1 0 001.414 0l.707-.707a1 1 0 00-1.414-1.414l-.707.707a1 1 0 000 1.414zM5.606 14.394a1 1 0 001.414 0l.707-.707a1 1 0 00-1.414-1.414l-.707.707a1 1 0 000 1.414z"/>
@@ -97,7 +81,6 @@
                     </svg>
                 </button>
 
-                <!-- Mobile menu button -->
                 <button id="mobile-menu-button" class="md:hidden p-2 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500">
                     <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
@@ -105,7 +88,6 @@
                 </button>
             </div>
         </nav>
-        <!-- Mobile menu -->
         <div id="mobile-menu" class="hidden md:hidden absolute w-full bg-white dark:bg-[#0d1117] shadow-md transition-colors duration-300">
             <a href="index.html" class="block py-3 px-6 text-center hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors duration-300">Home</a>
             <a href="projects.html" class="block py-3 px-6 text-center hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors duration-300">Projects</a>
@@ -114,15 +96,11 @@
         </div>
     </header>
 
-    <!-- Static Vertical Banner -->
     <div id="side-banner" class="fixed top-0 left-0 w-48 md:w-64 lg:w-80 h-full z-40 shadow-lg transition-colors duration-300">
-        <!-- The background image will be set by JavaScript -->
-    </div>
+        </div>
 
-    <!-- Main Content Area -->
     <main class="ml-48 md:ml-64 lg:ml-80 pt-20">
         
-        <!-- Hero Section -->
         <section id="hero" class="min-h-screen flex items-center section-padding px-6 md:px-8">
             <div class="max-w-7xl mx-auto w-full">
                 <div class="md:w-full text-center md:text-left mb-8 md:mb-0">
@@ -136,7 +114,6 @@
             </div>
         </section>
 
-        <!-- About Me Section -->
         <section id="about" class="min-h-screen flex items-center bg-gray-100 dark:bg-[#161b22] section-padding px-6 md:px-8">
             <div class="max-w-7xl mx-auto flex flex-col md:flex-row items-center w-full">
                 <div class="md:w-1/2 text-center md:text-left md:pr-12">
@@ -145,7 +122,7 @@
                     <p class="mt-4 text-lg md:text-xl text-gray-700 dark:text-gray-400">I am a proud alumnus of Catholic High School of Baton Rouge, where I first developed my problem-solving skills and a strong work ethic. I am passionate about creating clean, efficient, and user-friendly web applications.</p>
                 </div>
                 <div class="md:w-1/2 flex justify-center md:justify-end mt-8 md:mt-0">
-                <img src="personalpic.png" alt="Personal photo" class="personal-photo-placeholder h-64 md:h-80 w-64 md:w-80 rounded-2xl shadow-lg border-4 border-white dark:border-[#161b22] transition-colors duration-300">
+                    <img src="personalpic.png" alt="Personal photo" class="personal-photo-placeholder h-64 md:h-80 w-64 md:w-80 rounded-2xl shadow-lg border-4 border-white dark:border-[#161b22] transition-colors duration-300">
                 </div>
             </div>
         </section>
