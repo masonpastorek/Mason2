@@ -4,11 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>James (Mason) Pastorek - Projects</title>
-    <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Font Awesome for icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
-    <!-- Google Font - Inter -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
@@ -57,27 +54,49 @@
             background-size: cover;
             background-position: center;
         }
+        /* Media query to make the side banner smaller on mobile */
+        @media (max-width: 767px) {
+            #side-banner {
+                width: 100px;
+            }
+            .main-content, footer {
+                margin-left: 100px;
+            }
+        }
+        @media (min-width: 768px) {
+            #side-banner {
+                width: 256px;
+            }
+            .main-content, footer {
+                margin-left: 256px;
+            }
+        }
+        @media (min-width: 1024px) {
+            #side-banner {
+                width: 320px;
+            }
+            .main-content, footer {
+                margin-left: 320px;
+            }
+        }
     </style>
 </head>
 <body class="light bg-white text-gray-900 transition-colors duration-300">
 
-    <!-- Theme Toggle and Navigation -->
     <header class="fixed w-full z-50 bg-white dark:bg-[#0d1117] bg-opacity-90 dark:bg-opacity-90 backdrop-blur-sm shadow-md transition-colors duration-300">
-        <nav class="max-w-7xl mx-auto flex justify-between items-center py-4 px-6 md:px-8">
+        <nav class="max-w-7xl mx-auto flex flex-wrap items-center justify-between py-4 px-6 md:px-8">
             <div class="flex items-center space-x-4">
-                <!-- Updated logo path -->
                 <a href="index.html" class="font-bold text-lg hover:text-blue-500 transition-colors duration-300">My Portfolio</a>
             </div>
             
-            <div class="hidden md:flex items-center space-x-4">
-                <a href="index.html" class="nav-button bg-black text-white px-4 py-2 rounded-full font-semibold hover:bg-gray-800 dark:bg-white dark:text-black dark:hover:bg-gray-200 transition-colors duration-300">Home</a>
-                <a href="projects.html" class="nav-button bg-black text-white px-4 py-2 rounded-full font-semibold hover:bg-gray-800 dark:bg-white dark:text-black dark:hover:bg-gray-200 transition-colors duration-300">Projects</a>
-                <a href="support.html" class="nav-button bg-black text-white px-4 py-2 rounded-full font-semibold hover:bg-gray-800 dark:bg-white dark:text-black dark:hover:bg-gray-200 transition-colors duration-300">Support</a>
-                <a href="social-media.html" class="nav-button bg-black text-white px-4 py-2 rounded-full font-semibold hover:bg-gray-800 dark:bg-white dark:text-black dark:hover:bg-gray-200 transition-colors duration-300">Social Media Marketing</a>
+            <div class="flex items-center space-x-2 md:space-x-4 flex-wrap mt-2 md:mt-0">
+                <a href="index.html" class="nav-button bg-black text-white px-3 py-1 md:px-4 md:py-2 rounded-full font-semibold text-sm md:text-base hover:bg-gray-800 dark:bg-white dark:text-black dark:hover:bg-gray-200 transition-colors duration-300">Home</a>
+                <a href="projects.html" class="nav-button bg-black text-white px-3 py-1 md:px-4 md:py-2 rounded-full font-semibold text-sm md:text-base hover:bg-gray-800 dark:bg-white dark:text-black dark:hover:bg-gray-200 transition-colors duration-300">Projects</a>
+                <a href="support.html" class="nav-button bg-black text-white px-3 py-1 md:px-4 md:py-2 rounded-full font-semibold text-sm md:text-base hover:bg-gray-800 dark:bg-white dark:text-black dark:hover:bg-gray-200 transition-colors duration-300">Support</a>
+                <a href="social-media.html" class="nav-button bg-black text-white px-3 py-1 md:px-4 md:py-2 rounded-full font-semibold text-sm md:text-base hover:bg-gray-800 dark:bg-white dark:text-black dark:hover:bg-gray-200 transition-colors duration-300">Social Media</a>
             </div>
 
-            <div class="flex items-center space-x-4">
-                <!-- Theme toggle button -->
+            <div class="flex items-center space-x-4 ml-auto md:ml-0">
                 <button id="theme-toggle" class="p-2 rounded-full focus:outline-none transition-colors duration-300">
                     <svg id="sun-icon" class="h-6 w-6 text-yellow-500" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
                         <path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4.394 1.606a1 1 0 00-1.414 0l-.707.707a1 1 0 001.414 1.414l.707-.707a1 1 0 000-1.414zM18 10a1 1 0 01-1 1h-1a1 1 0 110-2h1a1 1 0 011 1zM3 10a1 1 0 01-1 1H2a1 1 0 110-2h1a1 1 0 011 1zM10 15a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zm4.394-1.606a1 1 0 00-1.414 0l-.707.707a1 1 0 001.414 1.414l.707-.707a1 1 0 000-1.414zM5.606 5.606a1 1 0 001.414 0l.707-.707a1 1 0 00-1.414-1.414l-.707.707a1 1 0 000 1.414zM5.606 14.394a1 1 0 001.414 0l.707-.707a1 1 0 00-1.414-1.414l-.707.707a1 1 0 000 1.414z"/>
@@ -86,62 +105,42 @@
                         <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"/>
                     </svg>
                 </button>
-
-                <!-- Mobile menu button -->
-                <button id="mobile-menu-button" class="md:hidden p-2 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500">
-                    <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
-                    </svg>
-                </button>
             </div>
         </nav>
-        <!-- Mobile menu -->
-        <div id="mobile-menu" class="hidden md:hidden absolute w-full bg-white dark:bg-[#0d1117] shadow-md transition-colors duration-300">
-            <a href="index.html" class="block py-3 px-6 text-center hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors duration-300">Home</a>
-            <a href="projects.html" class="block py-3 px-6 text-center hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors duration-300">Projects</a>
-            <a href="support.html" class="block py-3 px-6 text-center hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors duration-300">Support</a>
-            <a href="social-media.html" class="block py-3 px-6 text-center hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors duration-300">Social Media Marketing</a>
-        </div>
     </header>
 
-    <!-- Static Vertical Banner -->
-    <div id="side-banner" class="fixed top-0 left-0 w-48 md:w-64 lg:w-80 h-full z-40 shadow-lg transition-colors duration-300">
-        <!-- This banner's background image will be set dynamically by JavaScript -->
-    </div>
+    <div id="side-banner" class="fixed top-0 left-0 h-full z-40 shadow-lg transition-colors duration-300">
+        </div>
 
-    <main class="ml-48 md:ml-64 lg:ml-80 pt-20">
-        <!-- Projects Section -->
+    <main class="main-content pt-20">
         <section id="projects" class="min-h-screen flex items-center section-padding px-6 md:px-8">
             <div class="max-w-7xl mx-auto w-full">
                 <h2 class="text-3xl md:text-5xl font-bold text-center mb-12">My Projects</h2>
                 <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                    <!-- Project Card 1: Web Development -->
                     <div class="bg-gray-100 dark:bg-[#161b22] rounded-2xl shadow-lg p-6 flex flex-col items-center text-center transition-transform duration-300 hover:scale-105">
                         <img src="images/software_engineering1.jpg" alt="Geaux Shine" class="rounded-xl w-full h-48 object-cover mb-4">
                         <h3 class="text-xl md:text-2xl font-bold">Geaux Shine</h3>
                         <p class="mt-2 text-gray-700 dark:text-gray-400">A responsive business website using a custom data puller.</p>
                         <a href="https://gs-new.vercel.app/" class="mt-4 inline-block bg-blue-600 text-white px-4 py-2 rounded-full hover:bg-blue-700 transition-colors duration-300">Learn More</a>
                     </div>
-                    <!-- Project Card 2: Data Analysis Tool -->
                     <div class="bg-gray-100 dark:bg-[#161b22] rounded-2xl shadow-lg p-6 flex flex-col items-center text-center transition-transform duration-300 hover:scale-105">
                         <img src="images/mechanical_engineering2.jpg" alt="Data Analysis Tool" class="rounded-xl w-full h-48 object-cover mb-4">
                         <h3 class="text-xl md:text-2xl font-bold">Data Analysis Tool</h3>
                         <p class="mt-2 text-gray-700 dark:text-gray-400">A Python application for visualizing, analyzing, and pulling data sets. Website coming soon to show this off...</p>
-                        <a href="" class="mt-4 inline-block bg-blue-600 text-white px-4 py-2 rounded-full hover:bg-blue-700 transition-colors duration-300">Learn More</a>
+                        <a href="#" class="mt-4 inline-block bg-blue-600 text-white px-4 py-2 rounded-full hover:bg-blue-700 transition-colors duration-300">Learn More</a>
                     </div>
-                    <!-- Project Card 3: Mechanical Engineering Design -->
                     <div class="bg-gray-100 dark:bg-[#161b22] rounded-2xl shadow-lg p-6 flex flex-col items-center text-center transition-transform duration-300 hover:scale-105">
                         <img src="images/oil_pump2.jpg" alt="Geaux Create" class="rounded-xl w-full h-48 object-cover mb-4">
                         <h3 class="text-xl md:text-2xl font-bold">Geaux Create</h3>
                         <p class="mt-2 text-gray-700 dark:text-gray-400">A website that creates business or personal web pages using interactive Python coding and Ai. Coming soon...</p>
-                        <a href="" class="mt-4 inline-block bg-blue-600 text-white px-4 py-2 rounded-full hover:bg-blue-700 transition-colors duration-300">Learn More</a>
+                        <a href="#" class="mt-4 inline-block bg-blue-600 text-white px-4 py-2 rounded-full hover:bg-blue-700 transition-colors duration-300">Learn More</a>
                     </div>
                 </div>
             </div>
         </section>
     </main>
 
-    <footer class="ml-48 md:ml-64 lg:ml-80 text-center py-8 text-sm text-gray-500 dark:text-gray-400">
+    <footer class="text-center py-8 text-sm text-gray-500 dark:text-gray-400">
         <p>&copy; 2024 James (Mason) Pastorek. All Rights Reserved.</p>
     </footer>
 
@@ -174,20 +173,6 @@
             const currentTheme = document.documentElement.classList.contains('dark') ? 'light' : 'dark';
             localStorage.setItem('theme', currentTheme);
             updateTheme();
-        });
-
-        // Mobile menu toggle logic
-        const mobileMenuButton = document.getElementById('mobile-menu-button');
-        const mobileMenu = document.getElementById('mobile-menu');
-        mobileMenuButton.addEventListener('click', () => {
-            mobileMenu.classList.toggle('hidden');
-        });
-        
-        // Hide mobile menu on link click
-        document.querySelectorAll('#mobile-menu a').forEach(link => {
-            link.addEventListener('click', () => {
-                mobileMenu.classList.add('hidden');
-            });
         });
     </script>
 </body>
