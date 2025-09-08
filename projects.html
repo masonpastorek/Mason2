@@ -66,6 +66,12 @@
                 padding-left: 0.5rem; /* px-2 */
                 padding-right: 0.5rem; /* px-2 */
             }
+            .header-grid {
+                grid-template-columns: 1fr;
+            }
+            .nav-buttons {
+                justify-content: center;
+            }
         }
         @media (min-width: 768px) {
             #side-banner {
@@ -120,6 +126,12 @@
             <div class="max-w-7xl mx-auto w-full">
                 <h2 class="text-3xl md:text-5xl font-bold text-center mb-12">My Projects</h2>
                 <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                                        <div class="bg-gray-100 dark:bg-[#161b22] rounded-2xl shadow-lg p-6 flex flex-col items-center text-center transition-transform duration-300 hover:scale-105">
+                        <img src="images/geauxride.png" alt="Geaux Ride Website" class="rounded-xl w-full h-48 object-cover mb-4">
+                        <h3 class="text-xl md:text-2xl font-bold">Geaux Ride</h3>
+                        <p class="mt-2 text-gray-700 dark:text-gray-400">A website for a ride-sharing service tailored to university students.</p>
+                        <a href="https://geaux-ride.vercel.app/?fbclid=PAZXh0bgNhZW0CMTEAAafRr8YUcUiGM8lQYlsYXWkffkR56mLcQpr_vPq_WI23KlUgLfUKIyUb_bO8CA_aem_jYvPpRraQIBGM13kVU4cJw" class="mt-4 inline-block bg-blue-600 text-white px-4 py-2 rounded-full hover:bg-blue-700 transition-colors duration-300">Learn More</a>
+                    </div>
                                         <div class="bg-gray-100 dark:bg-[#161b22] rounded-2xl shadow-lg p-6 flex flex-col items-center text-center transition-transform duration-300 hover:scale-105">
                         <img src="images/software_engineering1.jpg" alt="Software Engineering Project" class="rounded-xl w-full h-48 object-cover mb-4">
                         <h3 class="text-xl md:text-2xl font-bold">Web Development Project</h3>
