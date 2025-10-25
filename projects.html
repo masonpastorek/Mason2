@@ -1,206 +1,235 @@
 <!DOCTYPE html>
 <html lang="en" class="light">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>James (Mason) Pastorek - Projects</title>
-        <script src="https://cdn.tailwindcss.com"></script>
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
-        <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
-    <style>
-        body {
-            font-family: 'Inter', sans-serif;
-            transition: background-color 0.3s, color 0.3s;
-        }
-        .dark body {
-            background-color: #0d1117;
-            color: #c9d1d9;
-        }
-        .light body {
-            background-color: #ffffff;
-            color: #24292e;
-        }
-        /* Custom scrollbar for better aesthetics */
-        ::-webkit-scrollbar {
-            width: 8px;
-        }
-        ::-webkit-scrollbar-track {
-            background: #e0e0e0;
-            border-radius: 10px;
-        }
-        .dark::-webkit-scrollbar-track {
-            background: #2d333b;
-        }
-        ::-webkit-scrollbar-thumb {
-            background: #888;
-            border-radius: 10px;
-        }
-        .dark::-webkit-scrollbar-thumb {
-            background: #555;
-        }
-        .section-padding {
-            padding-top: 100px;
-            padding-bottom: 100px;
-        }
-        .side-banner-light {
-            background-image: url('images/side-light.jpg');
-            background-size: cover;
-            background-position: center;
-        }
-        .side-banner-dark {
-            background-image: url('images/side-dark.jpg');
-            background-size: cover;
-            background-position: center;
-        }
-        /* Media query to make the side banner smaller on mobile */
-        @media (max-width: 767px) {
-            #side-banner {
-                width: 100px; /* Adjust this value as needed for mobile */
-            }
-            .main-content, footer {
-                margin-left: 100px;
-            }
-            .nav-button {
-                padding-left: 0.5rem; /* px-2 */
-                padding-right: 0.5rem; /* px-2 */
-            }
-            .header-grid {
-                grid-template-columns: 1fr;
-            }
-            .nav-buttons {
-                justify-content: center;
-            }
-        }
-        @media (min-width: 768px) {
-            #side-banner {
-                width: 256px; /* md:w-64 */
-            }
-            .main-content, footer {
-                margin-left: 256px;
-            }
-        }
-        @media (min-width: 1024px) {
-            #side-banner {
-                width: 320px; /* lg:w-80 */
-            }
-            .main-content, footer {
-                margin-left: 320px;
-            }
-        }
-    </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>James (Mason) Pastorek - Projects</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            transition: background-color 0.3s, color 0.3s;
+        }
+        .dark body {
+            background-color: #0d1117;
+            color: #c9d1d9;
+        }
+        .light body {
+            background-color: #ffffff;
+            color: #24292e;
+        }
+        /* Custom scrollbar for better aesthetics */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #e0e0e0;
+            border-radius: 10px;
+        }
+        .dark::-webkit-scrollbar-track {
+            background: #2d333b;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #888;
+            border-radius: 10px;
+        }
+        .dark::-webkit-scrollbar-thumb {
+            background: #555;
+        }
+        .section-padding {
+            padding-top: 100px;
+            padding-bottom: 100px;
+        }
+        .side-banner-light {
+            background-image: url('images/side-light.jpg');
+            background-size: cover;
+            background-position: center;
+        }
+        .side-banner-dark {
+            background-image: url('images/side-dark.jpg');
+            background-size: cover;
+            background-position: center;
+        }
+
+        /* Style for the active navigation button on a page */
+        .nav-button.active {
+            box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.5); /* Blue shadow for active state */
+            transform: scale(1.05);
+        }
+
+        /* Mobile Fixes and Side Banner Sizing */
+        @media (max-width: 767px) {
+            #side-banner {
+                width: 100px; /* Adjust this value as needed for mobile */
+                /* Added to handle potential image issues on very small screens */
+                background-image: none !important; 
+                background-color: #f3f4f6; /* Placeholder color for mobile */
+            }
+            .dark #side-banner {
+                background-color: #1f2937;
+            }
+            .main-content, footer {
+                margin-left: 100px;
+            }
+            .nav-button {
+                padding-left: 0.5rem; /* px-2 */
+                padding-right: 0.5rem; /* px-2 */
+            }
+            .header-grid {
+                grid-template-columns: 1fr;
+            }
+            /* Explicit mobile navigation fixes */
+            .nav-buttons {
+                justify-content: center;
+                width: 100%; /* Ensure navigation buttons take full width for better wrapping */
+                margin-top: 0.5rem;
+            }
+            header nav {
+                flex-direction: column;
+                align-items: center;
+            }
+            /* Position theme toggle separately on mobile */
+            header nav > div:last-child { 
+                position: absolute;
+                right: 1.5rem;
+                top: 0.75rem;
+            }
+        }
+        @media (min-width: 768px) {
+            #side-banner {
+                width: 256px; /* md:w-64 */
+            }
+            .main-content, footer {
+                margin-left: 256px;
+            }
+        }
+        @media (min-width: 1024px) {
+            #side-banner {
+                width: 320px; /* lg:w-80 */
+            }
+            .main-content, footer {
+                margin-left: 320px;
+            }
+        }
+    </style>
 </head>
 <body class="light bg-white text-gray-900 transition-colors duration-300">
 
-        <header class="fixed w-full z-50 bg-white dark:bg-[#0d1117] bg-opacity-90 dark:bg-opacity-90 backdrop-blur-sm shadow-md transition-colors duration-300">
-        <nav class="max-w-7xl mx-auto flex flex-wrap items-center justify-between py-4 px-6 md:px-8">
-            <div class="flex items-center space-x-4">
-                <a href="index.html" class="font-bold text-lg hover:text-blue-500 transition-colors duration-300">My Portfolio</a>
-            </div>
-            
-            <div class="flex items-center space-x-2 md:space-x-4 flex-wrap mt-2 md:mt-0">
-                <a href="index.html" class="nav-button bg-black text-white px-3 py-1 md:px-4 md:py-2 rounded-full font-semibold text-sm md:text-base hover:bg-gray-800 dark:bg-white dark:text-black dark:hover:bg-gray-200 transition-colors duration-300">Home</a>
-                <a href="projects.html" class="nav-button bg-black text-white px-3 py-1 md:px-4 md:py-2 rounded-full font-semibold text-sm md:text-base hover:bg-gray-800 dark:bg-white dark:text-black dark:hover:bg-gray-200 transition-colors duration-300">Projects</a>
-                <a href="support.html" class="nav-button bg-black text-white px-3 py-1 md:px-4 md:py-2 rounded-full font-semibold text-sm md:text-base hover:bg-gray-800 dark:bg-white dark:text-black dark:hover:bg-gray-200 transition-colors duration-300">Support</a>
-                <a href="donations.html" class="nav-button bg-black text-white px-3 py-1 md:px-4 md:py-2 rounded-full font-semibold text-sm md:text-base hover:bg-gray-800 dark:bg-white dark:text-black dark:hover:bg-gray-200 transition-colors duration-300">Social Media Marketing</a>
-            </div>
-            <div class="flex items-center space-x-4 ml-auto md:ml-0">
-                                <button id="theme-toggle" class="p-2 rounded-full focus:outline-none transition-colors duration-300">
-                    <svg id="sun-icon" class="h-6 w-6 text-yellow-500" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4.394 1.606a1 1 0 00-1.414 0l-.707.707a1 1 0 001.414 1.414l.707-.707a1 1 0 000-1.414zM18 10a1 1 0 01-1 1h-1a1 1 0 110-2h1a1 1 0 011 1zM3 10a1 1 0 01-1 1H2a1 1 0 110-2h1a1 1 0 011 1zM10 15a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zm4.394-1.606a1 1 0 00-1.414 0l-.707.707a1 1 0 001.414 1.414l.707-.707a1 1 0 000-1.414zM5.606 5.606a1 1 0 001.414 0l.707-.707a1 1 0 00-1.414-1.414l-.707.707a1 1 0 000 1.414zM5.606 14.394a1 1 0 001.414 0l.707-.707a1 1 0 00-1.414-1.414l-.707.707a1 1 0 000 1.414z"/>
-                    </svg>
-                    <svg id="moon-icon" class="h-6 w-6 text-gray-500 hidden" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"/>
-                    </svg>
-                </button>
-            </div>
-        </nav>
-    </header>
+    <header class="fixed w-full z-50 bg-white dark:bg-[#0d1117] bg-opacity-90 dark:bg-opacity-90 backdrop-blur-sm shadow-md transition-colors duration-300">
+        <nav class="max-w-7xl mx-auto flex flex-wrap items-center justify-between py-4 px-6 md:px-8">
+            <div class="flex items-center space-x-4">
+                <a href="index.html" class="font-bold text-lg hover:text-blue-500 transition-colors duration-300">My Portfolio</a>
+            </div>
+            
+            <div class="flex items-center space-x-2 md:space-x-4 flex-wrap mt-2 md:mt-0 nav-buttons">
+                <a href="index.html" class="nav-button bg-black text-white px-3 py-1 md:px-4 md:py-2 rounded-full font-semibold text-sm md:text-base hover:bg-gray-800 dark:bg-white dark:text-black dark:hover:bg-gray-200 transition-colors duration-300">Home</a>
+                <a href="projects.html" class="nav-button active bg-black text-white px-3 py-1 md:px-4 md:py-2 rounded-full font-semibold text-sm md:text-base hover:bg-gray-800 dark:bg-white dark:text-black dark:hover:bg-gray-200 transition-colors duration-300">Projects</a>
+                <a href="support.html" class="nav-button bg-black text-white px-3 py-1 md:px-4 md:py-2 rounded-full font-semibold text-sm md:text-base hover:bg-gray-800 dark:bg-white dark:text-black dark:hover:bg-gray-200 transition-colors duration-300">Support</a>
+                <a href="social-media.html" class="nav-button bg-black text-white px-3 py-1 md:px-4 md:py-2 rounded-full font-semibold text-sm md:text-base hover:bg-gray-800 dark:bg-white dark:text-black dark:hover:bg-gray-200 transition-colors duration-300">Social Media</a>
+            </div>
 
-        <div id="side-banner" class="fixed top-0 left-0 h-full z-40 shadow-lg transition-colors duration-300">
-            </div>
+            <div class="flex items-center space-x-4 ml-auto md:ml-0">
+                <button id="theme-toggle" class="p-2 rounded-full focus:outline-none transition-colors duration-300">
+                    <svg id="sun-icon" class="h-6 w-6 text-yellow-500" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4.394 1.606a1 1 0 00-1.414 0l-.707.707a1 1 0 001.414 1.414l.707-.707a1 1 0 000-1.414zM18 10a1 1 0 01-1 1h-1a1 1 0 110-2h1a1 1 0 011 1zM3 10a1 1 0 01-1 1H2a1 1 0 110-2h1a1 1 0 011 1zM10 15a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zm4.394-1.606a1 1 0 00-1.414 0l-.707.707a1 1 0 001.414 1.414l.707-.707a1 1 0 000-1.414zM5.606 5.606a1 1 0 001.414 0l.707-.707a1 1 0 00-1.414-1.414l-.707.707a1 1 0 000 1.414zM5.606 14.394a1 1 0 001.414 0l.707-.707a1 1 0 00-1.414-1.414l-.707.707a1 1 0 000 1.414z"/>
+                    </svg>
+                    <svg id="moon-icon" class="h-6 w-6 text-gray-500 hidden" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"/>
+                    </svg>
+                </button>
+            </div>
+        </nav>
+    </header>
 
-    <main class="main-content pt-20">
-                <section id="projects" class="min-h-screen flex items-center section-padding px-6 md:px-8">
-            <div class="max-w-7xl mx-auto w-full">
-                <h2 class="text-3xl md:text-5xl font-bold text-center mb-12">My Projects</h2>
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                                        <div class="bg-gray-100 dark:bg-[#161b22] rounded-2xl shadow-lg p-6 flex flex-col items-center text-center transition-transform duration-300 hover:scale-105">
-                        <img src="images/geauxride.png" alt="Geaux Ride Website" class="rounded-xl w-full h-48 object-cover mb-4">
-                        <h3 class="text-xl md:text-2xl font-bold">Geaux Ride</h3>
-                        <p class="mt-2 text-gray-700 dark:text-gray-400">A website for a ride-sharing service tailored to university students.</p>
-                        <a href="https://geaux-ride.vercel.app/?fbclid=PAZXh0bgNhZW0CMTEAAafRr8YUcUiGM8lQYlsYXWkffkR56mLcQpr_vPq_WI23KlUgLfUKIyUb_bO8CA_aem_jYvPpRraQIBGM13kVU4cJw" class="mt-4 inline-block bg-blue-600 text-white px-4 py-2 rounded-full hover:bg-blue-700 transition-colors duration-300">Learn More</a>
-                    </div>
-                                        <div class="bg-gray-100 dark:bg-[#161b22] rounded-2xl shadow-lg p-6 flex flex-col items-center text-center transition-transform duration-300 hover:scale-105">
-                        <img src="images/software_engineering1.jpg" alt="Software Engineering Project" class="rounded-xl w-full h-48 object-cover mb-4">
-                        <h3 class="text-xl md:text-2xl font-bold">Web Development Project</h3>
-                        <p class="mt-2 text-gray-700 dark:text-gray-400">A web-based application designed for efficient project management and collaboration among large teams.</p>
-                        <a href="https://example.com/web-dev-project" class="mt-4 inline-block bg-blue-600 text-white px-4 py-2 rounded-full hover:bg-blue-700 transition-colors duration-300">Learn More</a>
-                    </div>
-                                        <div class="bg-gray-100 dark:bg-[#161b22] rounded-2xl shadow-lg p-6 flex flex-col items-center text-center transition-transform duration-300 hover:scale-105">
-                        <img src="images/mechanical_engineering1.jpg" alt="Mechanical Engineering Project" class="rounded-xl w-full h-48 object-cover mb-4">
-                        <h3 class="text-xl md:text-2xl font-bold">Mechanical Engineering</h3>
-                        <p class="mt-2 text-gray-700 dark:text-gray-400">A physical prototype of an automated system for resource allocation and management in a controlled environment.</p>
-                        <a href="https://example.com/mechanical-project" class="mt-4 inline-block bg-blue-600 text-white px-4 py-2 rounded-full hover:bg-blue-700 transition-colors duration-300">Learn More</a>
-                    </div>
-                                        <div class="bg-gray-100 dark:bg-[#161b22] rounded-2xl shadow-lg p-6 flex flex-col items-center text-center transition-transform duration-300 hover:scale-105">
-                        <img src="images/oil_pump1.jpg" alt="Oil Pump Project" class="rounded-xl w-full h-48 object-cover mb-4">
-                        <h3 class="text-xl md:text-2xl font-bold">Oil Pump Optimization</h3>
-                        <p class="mt-2 text-gray-700 dark:text-gray-400">A detailed analysis and simulation to improve the efficiency and output of a multi-stage oil pump system.</p>
-                        <a href="https://example.com/oil-pump-project" class="mt-4 inline-block bg-blue-600 text-white px-4 py-2 rounded-full hover:bg-blue-700 transition-colors duration-300">Learn More</a>
-                    </div>
-                                        <div class="bg-gray-100 dark:bg-[#161b22] rounded-2xl shadow-lg p-6 flex flex-col items-center text-center transition-transform duration-300 hover:scale-105">
-                        <img src="https://placehold.co/400x250/2952A3/FFFFFF?text=Double+T+Charters" alt="Double T Charters" class="rounded-lg mb-4">
-                        <h3 class="text-xl md:text-2xl font-bold">Double T Charters</h3>
-                        <p class="mt-2 text-gray-700 dark:text-gray-400">A custom website for a fishing charter business with booking and gallery features.</p>
-                        <a href="https://double-t.vercel.app/" class="mt-4 inline-block bg-blue-600 text-white px-4 py-2 rounded-full hover:bg-blue-700 transition-colors duration-300">Learn More</a>
-                    </div>
-                                        <div class="bg-gray-100 dark:bg-[#161b22] rounded-2xl shadow-lg p-6 flex flex-col items-center text-center transition-transform duration-300 hover:scale-105">
-                        <img src="https://placehold.co/400x250/000000/FFFFFF?text=Geaux+Create" alt="Geaux Create" class="rounded-lg mb-4">
-                        <h3 class="text-xl md:text-2xl font-bold">Geaux Create</h3>
-                        <p class="mt-2 text-gray-700 dark:text-gray-400">A portfolio platform for showcasing creative projects and collaborations.</p>
-                        <a href="https://g-create.vercel.app/" class="mt-4 inline-block bg-blue-600 text-white px-4 py-2 rounded-full hover:bg-blue-700 transition-colors duration-300">Learn More</a>
-                    </div>
-                </div>
-            </div>
-        </section>
-    </main>
+    <div id="side-banner" class="fixed top-0 left-0 h-full z-40 shadow-lg transition-colors duration-300">
+    </div>
 
-    <footer class="main-content text-center py-8 text-sm text-gray-500 dark:text-gray-400">
-        <p>&copy; 2024 James (Mason) Pastorek. All Rights Reserved.</p>
-    </footer>
+    <main class="main-content pt-20">
+        <section id="projects" class="min-h-screen flex items-center section-padding px-6 md:px-8">
+            <div class="max-w-7xl mx-auto w-full">
+                <h2 class="text-3xl md:text-5xl font-bold text-center mb-12">My Projects</h2>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <div class="bg-gray-100 dark:bg-[#161b22] rounded-2xl shadow-lg p-6 flex flex-col items-center text-center transition-transform duration-300 hover:scale-105">
+                        <img src="images/geauxride.png" alt="Geaux Ride Website" class="rounded-xl w-full h-48 object-cover mb-4">
+                        <h3 class="text-xl md:text-2xl font-bold">Geaux Ride</h3>
+                        <p class="mt-2 text-gray-700 dark:text-gray-400">A website for a ride-sharing service tailored to university students.</p>
+                        <a href="https://geaux-ride.vercel.app/?fbclid=PAZXh0bgNhZW0CMTEAAafRr8YUcUiGM8lQYlsYXWkffkR56mLcQpr_vPq_WI23KlUgLfUKIyUb_bO8CA_aem_jYvPpRraQIBGM13kVU4cJw" class="mt-4 inline-block bg-blue-600 text-white px-4 py-2 rounded-full hover:bg-blue-700 transition-colors duration-300">Learn More</a>
+                    </div>
+                    <div class="bg-gray-100 dark:bg-[#161b22] rounded-2xl shadow-lg p-6 flex flex-col items-center text-center transition-transform duration-300 hover:scale-105">
+                        <img src="images/software_engineering1.jpg" alt="Software Engineering Project" class="rounded-xl w-full h-48 object-cover mb-4">
+                        <h3 class="text-xl md:text-2xl font-bold">Web Development Project</h3>
+                        <p class="mt-2 text-gray-700 dark:text-gray-400">A web-based application designed for efficient project management and collaboration among large teams.</p>
+                        <a href="https://example.com/web-dev-project" class="mt-4 inline-block bg-blue-600 text-white px-4 py-2 rounded-full hover:bg-blue-700 transition-colors duration-300">Learn More</a>
+                    </div>
+                    <div class="bg-gray-100 dark:bg-[#161b22] rounded-2xl shadow-lg p-6 flex flex-col items-center text-center transition-transform duration-300 hover:scale-105">
+                        <img src="images/mechanical_engineering1.jpg" alt="Mechanical Engineering Project" class="rounded-xl w-full h-48 object-cover mb-4">
+                        <h3 class="text-xl md:text-2xl font-bold">Mechanical Engineering</h3>
+                        <p class="mt-2 text-gray-700 dark:text-gray-400">A physical prototype of an automated system for resource allocation and management in a controlled environment.</p>
+                        <a href="https://example.com/mechanical-project" class="mt-4 inline-block bg-blue-600 text-white px-4 py-2 rounded-full hover:bg-blue-700 transition-colors duration-300">Learn More</a>
+                    </div>
+                    <div class="bg-gray-100 dark:bg-[#161b22] rounded-2xl shadow-lg p-6 flex flex-col items-center text-center transition-transform duration-300 hover:scale-105">
+                        <img src="images/oil_pump1.jpg" alt="Oil Pump Project" class="rounded-xl w-full h-48 object-cover mb-4">
+                        <h3 class="text-xl md:text-2xl font-bold">Oil Pump Optimization</h3>
+                        <p class="mt-2 text-gray-700 dark:text-gray-400">A detailed analysis and simulation to improve the efficiency and output of a multi-stage oil pump system.</p>
+                        <a href="https://example.com/oil-pump-project" class="mt-4 inline-block bg-blue-600 text-white px-4 py-2 rounded-full hover:bg-blue-700 transition-colors duration-300">Learn More</a>
+                    </div>
+                    <div class="bg-gray-100 dark:bg-[#161b22] rounded-2xl shadow-lg p-6 flex flex-col items-center text-center transition-transform duration-300 hover:scale-105">
+                        <img src="https://placehold.co/400x250/2952A3/FFFFFF?text=Double+T+Charters" alt="Double T Charters" class="rounded-lg mb-4">
+                        <h3 class="text-xl md:text-2xl font-bold">Double T Charters</h3>
+                        <p class="mt-2 text-gray-700 dark:text-gray-400">A custom website for a fishing charter business with booking and gallery features.</p>
+                        <a href="https://double-t.vercel.app/" class="mt-4 inline-block bg-blue-600 text-white px-4 py-2 rounded-full hover:bg-blue-700 transition-colors duration-300">Learn More</a>
+                    </div>
+                    <div class="bg-gray-100 dark:bg-[#161b22] rounded-2xl shadow-lg p-6 flex flex-col items-center text-center transition-transform duration-300 hover:scale-105">
+                        <img src="https://placehold.co/400x250/000000/FFFFFF?text=Geaux+Create" alt="Geaux Create" class="rounded-lg mb-4">
+                        <h3 class="text-xl md:text-2xl font-bold">Geaux Create</h3>
+                        <p class="mt-2 text-gray-700 dark:text-gray-400">A portfolio platform for showcasing creative projects and collaborations.</p>
+                        <a href="https://g-create.vercel.app/" class="mt-4 inline-block bg-blue-600 text-white px-4 py-2 rounded-full hover:bg-blue-700 transition-colors duration-300">Learn More</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
 
-    <script>
-        // Check for theme in localStorage and apply it
-        const updateTheme = () => {
-            const sideBanner = document.getElementById('side-banner');
-            if (localStorage.getItem('theme') === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
-                document.documentElement.classList.add('dark');
-                document.documentElement.classList.remove('light');
-                document.getElementById('sun-icon').classList.add('hidden');
-                document.getElementById('moon-icon').classList.remove('hidden');
-                sideBanner.classList.add('side-banner-dark');
-                sideBanner.classList.remove('side-banner-light');
-            } else {
-                document.documentElement.classList.add('light');
-                document.documentElement.classList.remove('dark');
-                document.getElementById('sun-icon').classList.remove('hidden');
-                document.getElementById('moon-icon').classList.add('hidden');
-                sideBanner.classList.add('side-banner-light');
-                sideBanner.classList.remove('side-banner-dark');
-            }
-        };
+    <footer class="main-content text-center py-8 text-sm text-gray-500 dark:text-gray-400">
+        <p>&copy; 2024 James (Mason) Pastorek. All Rights Reserved.</p>
+    </footer>
 
-        // Initial theme application
-        updateTheme();
+    <script>
+        // Check for theme in localStorage and apply it
+        const updateTheme = () => {
+            const sideBanner = document.getElementById('side-banner');
+            if (localStorage.getItem('theme') === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+                document.documentElement.classList.add('dark');
+                document.documentElement.classList.remove('light');
+                document.getElementById('sun-icon').classList.add('hidden');
+                document.getElementById('moon-icon').classList.remove('hidden');
+                // Apply dark banner class
+                sideBanner.classList.add('side-banner-dark');
+                sideBanner.classList.remove('side-banner-light');
+            } else {
+                document.documentElement.classList.add('light');
+                document.documentElement.classList.remove('dark');
+                document.getElementById('sun-icon').classList.remove('hidden');
+                document.getElementById('moon-icon').classList.add('hidden');
+                // Apply light banner class
+                sideBanner.classList.add('side-banner-light');
+                sideBanner.classList.remove('side-banner-dark');
+            }
+        };
 
-        // Theme toggle logic
-        document.getElementById('theme-toggle').addEventListener('click', function() {
-            const currentTheme = document.documentElement.classList.contains('dark') ? 'light' : 'dark';
-            localStorage.setItem('theme', currentTheme);
-            updateTheme();
-        });
-    </script>
+        // Initial theme application
+        updateTheme();
+
+        // Theme toggle logic
+        document.getElementById('theme-toggle').addEventListener('click', function() {
+            const currentTheme = document.documentElement.classList.contains('dark') ? 'light' : 'dark';
+            localStorage.setItem('theme', currentTheme);
+            updateTheme();
+        });
+    </script>
 </body>
 </html>
