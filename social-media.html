@@ -54,7 +54,7 @@
             background-size: cover;
             background-position: center;
         }
-        
+
         /* Added for active navigation link styling */
         .nav-button.active {
             box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.5);
@@ -64,86 +64,85 @@
         /* 🚀 UNIFIED MOBILE HEADER LAYOUT (Screens <= 767px) */
         @media (max-width: 767px) {
             
-            /* Side Banner: Fixed width */
+            /* 🔥 REMOVE SIDE BANNER ON MOBILE */
             #side-banner {
-                width: 100px; 
-                background-image: url('images/side-light.jpg'); /* Ensure image is set for consistency */
-                background-color: #f3f4f6; 
-            }
-            .dark #side-banner {
-                background-image: url('images/side-dark.jpg'); 
-                background-color: #1f2937;
+                width: 0;
+                display: none; /* Hide it completely */
             }
             
-            /* Main Content & Footer: Shifted right to accommodate the side banner */
+            /* 🔥 REMOVE LEFT MARGIN ON MOBILE */
             .main-content, footer {
-                margin-left: 100px;
+                margin-left: 0;
             }
 
-            /* Header: Constrained to the main content area */
+            /* Header: Full width, starts at left: 0 */
             header {
-                /* Make the header start after the side banner (100px) and fill the rest of the screen */
-                width: calc(100% - 100px); 
-                left: 100px; 
+                width: 100%; 
+                left: 0; 
             }
 
             /* Navigation Bar Alignment */
             header nav {
-                /* Reset flex properties to ensure a clean row layout on mobile */
-                flex-direction: row; 
+                /* Allows "My Portfolio" and buttons to wrap below the logo */
+                flex-direction: column; 
                 align-items: center; 
-                flex-wrap: nowrap; /* Prevents navigation items from stacking */
-                padding-top: 0.5rem; /* Adjust padding if needed */
+                flex-wrap: wrap; 
+                padding-top: 0.5rem; 
                 padding-bottom: 0.5rem;
             }
 
             /* Adjust positioning of navigation items within the header */
             header nav > div:first-child { /* My Portfolio text */
                 order: 1;
-                flex-shrink: 0;
+                width: 100%;
+                text-align: center;
+                margin-bottom: 0.5rem;
             }
             header nav > div:nth-child(2) { /* Navigation Buttons */
                 order: 2;
-                margin-top: 0; /* Remove vertical margin */
-                margin-left: 0.5rem; /* Small gap from logo */
-                flex-grow: 1; /* Allows buttons to take up space */
-                flex-wrap: nowrap; /* Prevents button wrapping */
-                justify-content: flex-end; /* Pushes buttons to the right (next to the theme toggle) */
+                margin-top: 0; 
+                margin-left: 0;
+                flex-grow: 0;
+                flex-wrap: wrap; /* Re-enable wrapping for buttons if they are too wide */
+                justify-content: center;
+                width: 100%;
             }
             header nav > div:last-child { /* Theme Toggle */
                 order: 3;
-                margin-left: 0.5rem; /* Small gap from buttons */
-                flex-shrink: 0;
-                position: static; /* Reset absolute positioning */
+                position: absolute; /* Place toggle button outside the main flow */
+                right: 1.5rem;
+                top: 0.75rem;
             }
             .nav-button {
-                padding-left: 0.5rem; /* px-2 */
-                padding-right: 0.5rem; /* px-2 */
-                font-size: 0.75rem; /* text-xs for mobile buttons to fit better */
-                line-height: 1rem;
+                padding-left: 0.75rem; /* px-3 */
+                padding-right: 0.75rem; /* px-3 */
+                font-size: 0.875rem; /* text-sm, slightly larger than prev attempt */
+                line-height: 1.25rem;
+                margin-top: 0.25rem; /* Small space between buttons on wrap */
             }
             
-            /* Hide the theme toggle's margin helper */
+            /* Remove the ml-auto from the theme toggle container if it's there */
             .ml-auto {
                 margin-left: 0 !important;
             }
         }
-        /* DESKTOP/TABLET SIZING (Reset mobile-specific fixes) */
+        /* DESKTOP/TABLET SIZING (Retained Side Banner logic) */
         @media (min-width: 768px) {
             #side-banner {
-                width: 256px;
+                width: 256px; /* md:w-64 */
+                display: block;
             }
             .main-content, footer {
                 margin-left: 256px;
             }
              header {
-                width: 100%;
+                width: 100%; 
                 left: 0;
             }
         }
         @media (min-width: 1024px) {
             #side-banner {
-                width: 320px;
+                width: 320px; /* lg:w-80 */
             }
             .main-content, footer {
                 margin-left: 320px;
@@ -188,41 +187,7 @@
                 <h2 class="text-3xl md:text-5xl font-bold text-center mb-12">Social Media Marketing</h2>
                 <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
                     
-                    <a href="https://www.tiktok.com/@geauxcamp" target="_blank" class="bg-gray-100 dark:bg-[#161b22] rounded-2xl shadow-lg p-6 flex flex-col items-center text-center transition-transform duration-300 hover:scale-105">
-                        <i class="fa-brands fa-tiktok text-6xl text-gray-700 dark:text-gray-400 mb-4"></i>
-                        <h3 class="text-xl md:text-2xl font-bold">Geaux Camp</h3>
-                        <p class="mt-2 text-gray-700 dark:text-gray-400">Follow my main account for hunting and fishing content.</p>
-                        <span class="mt-4 inline-block bg-blue-600 text-white px-4 py-2 rounded-full hover:bg-blue-700 transition-colors duration-300">Follow</span>
-                    </a>
-                    
-                    <a href="https://www.tiktok.com/@geaux_create" target="_blank" class="bg-gray-100 dark:bg-[#161b22] rounded-2xl shadow-lg p-6 flex flex-col items-center text-center transition-transform duration-300 hover:scale-105">
-                        <i class="fa-brands fa-tiktok text-6xl text-gray-700 dark:text-gray-400 mb-4"></i>
-                        <h3 class="text-xl md:text-2xl font-bold">Geaux Create</h3>
-                        <p class="mt-2 text-gray-700 dark:text-gray-400">Check out my second account for behind-the-scenes on my website creation process.</p>
-                        <span class="mt-4 inline-block bg-blue-600 text-white px-4 py-2 rounded-full hover:bg-blue-700 transition-colors duration-300">Follow</span>
-                    </a>
-                    
-                    <a href="https://www.tiktok.com/@dales.ducks" target="_blank" class="bg-gray-100 dark:bg-[#161b22] rounded-2xl shadow-lg p-6 flex flex-col items-center text-center transition-transform duration-300 hover:scale-105">
-                        <i class="fa-brands fa-tiktok text-6xl text-gray-700 dark:text-gray-400 mb-4"></i>
-                        <h3 class="text-xl md:text-2xl font-bold">Dale's Ducks</h3>
-                        <p class="mt-2 text-gray-700 dark:text-gray-400">Check out my Big Foot Ai clip account.</p>
-                        <span class="mt-4 inline-block bg-blue-600 text-white px-4 py-2 rounded-full hover:bg-blue-700 transition-colors duration-300">Follow</span>
-                    </a>
-                    
-                    <a href="https://www.snapchat.com/add/masonpastorek" target="_blank" class="bg-gray-100 dark:bg-[#161b22] rounded-2xl shadow-lg p-6 flex flex-col items-center text-center transition-transform duration-300 hover:scale-105">
-                        <i class="fa-brands fa-snapchat text-6xl text-gray-700 dark:text-gray-400 mb-4"></i>
-                        <h3 class="text-xl md:text-2xl font-bold">Snapchat</h3>
-                        <p class="mt-2 text-gray-700 dark:text-gray-400">Add me on Snapchat to see my stories and daily life.</p>
-                        <span class="mt-4 inline-block bg-blue-600 text-white px-4 py-2 rounded-full hover:bg-blue-700 transition-colors duration-300">Add</span>
-                    </a>
-                    
-                    <a href="https://www.instagram.com/masonpastorek" target="_blank" class="bg-gray-100 dark:bg-[#161b22] rounded-2xl shadow-lg p-6 flex flex-col items-center text-center transition-transform duration-300 hover:scale-105">
-                        <i class="fa-brands fa-instagram text-6xl text-gray-700 dark:text-gray-400 mb-4"></i>
-                        <h3 class="text-xl md:text-2xl font-bold">Instagram</h3>
-                        <p class="mt-2 text-gray-700 dark:text-gray-400">Connect with me and see my latest photos and updates.</p>
-                        <span class="mt-4 inline-block bg-blue-600 text-white px-4 py-2 rounded-full hover:bg-blue-700 transition-colors duration-300">Follow</span>
-                    </a>
-                </div>
+                    </div>
             </div>
         </section>
     </main>
