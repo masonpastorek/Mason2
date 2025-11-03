@@ -55,56 +55,89 @@
             background-position: center;
         }
 
-        /* Style for the active navigation button on a page */
+        /* Added for active navigation link styling */
         .nav-button.active {
-            box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.5); /* Blue shadow for active state */
+            box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.5);
             transform: scale(1.05);
         }
 
-        /* Mobile Fixes and Side Banner Sizing */
+        /* 🚀 UNIFIED MOBILE HEADER LAYOUT (Screens <= 767px) */
         @media (max-width: 767px) {
+            
+            /* 🔥 REMOVE SIDE BANNER ON MOBILE */
             #side-banner {
-                width: 100px; /* Adjust this value as needed for mobile */
-                /* Added to handle potential image issues on very small screens */
-                background-image: none !important; 
-                background-color: #f3f4f6; /* Placeholder color for mobile */
+                width: 0;
+                display: none; /* Hide it completely */
             }
-            .dark #side-banner {
-                background-color: #1f2937;
-            }
+            
+            /* 🔥 REMOVE LEFT MARGIN ON MOBILE */
             .main-content, footer {
-                margin-left: 100px;
+                margin-left: 0;
             }
-            .nav-button {
-                padding-left: 0.5rem; /* px-2 */
-                padding-right: 0.5rem; /* px-2 */
+
+            /* Header: Full width, starts at left: 0 */
+            header {
+                width: 100%; 
+                left: 0; 
             }
-            .header-grid {
-                grid-template-columns: 1fr;
-            }
-            /* Explicit mobile navigation fixes */
-            .nav-buttons {
-                justify-content: center;
-                width: 100%; /* Ensure navigation buttons take full width for better wrapping */
-                margin-top: 0.5rem;
-            }
+
+            /* Navigation Bar Alignment */
             header nav {
-                flex-direction: column;
-                align-items: center;
+                /* Allows "My Portfolio" and buttons to wrap below the logo */
+                flex-direction: column; 
+                align-items: center; 
+                flex-wrap: wrap; 
+                padding-top: 0.5rem; 
+                padding-bottom: 0.5rem;
             }
-            /* Position theme toggle separately on mobile */
-            header nav > div:last-child { 
-                position: absolute;
+
+            /* Adjust positioning of navigation items within the header */
+            header nav > div:first-child { /* My Portfolio text */
+                order: 1;
+                width: 100%;
+                text-align: center;
+                margin-bottom: 0.5rem;
+            }
+            header nav > div:nth-child(2) { /* Navigation Buttons */
+                order: 2;
+                margin-top: 0; 
+                margin-left: 0;
+                flex-grow: 0;
+                flex-wrap: wrap; /* Re-enable wrapping for buttons if they are too wide */
+                justify-content: center;
+                width: 100%;
+            }
+            header nav > div:last-child { /* Theme Toggle */
+                order: 3;
+                position: absolute; /* Place toggle button outside the main flow */
                 right: 1.5rem;
                 top: 0.75rem;
             }
+            .nav-button {
+                padding-left: 0.75rem; /* px-3 */
+                padding-right: 0.75rem; /* px-3 */
+                font-size: 0.875rem; /* text-sm, slightly larger than prev attempt */
+                line-height: 1.25rem;
+                margin-top: 0.25rem; /* Small space between buttons on wrap */
+            }
+            
+            /* Remove the ml-auto from the theme toggle container if it's there */
+            .ml-auto {
+                margin-left: 0 !important;
+            }
         }
+        /* DESKTOP/TABLET SIZING (Retained Side Banner logic) */
         @media (min-width: 768px) {
             #side-banner {
                 width: 256px; /* md:w-64 */
+                display: block;
             }
             .main-content, footer {
                 margin-left: 256px;
+            }
+             header {
+                width: 100%; 
+                left: 0;
             }
         }
         @media (min-width: 1024px) {
@@ -146,7 +179,7 @@
     </header>
 
     <div id="side-banner" class="fixed top-0 left-0 h-full z-40 shadow-lg transition-colors duration-300">
-    </div>
+        </div>
 
     <main class="main-content pt-20">
         <section id="projects" class="min-h-screen flex items-center section-padding px-6 md:px-8">
@@ -154,42 +187,7 @@
                 <h2 class="text-3xl md:text-5xl font-bold text-center mb-12">My Projects</h2>
                 <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
                     
-                    <div class="bg-gray-100 dark:bg-[#161b22] rounded-2xl shadow-lg p-6 flex flex-col items-center text-center transition-transform duration-300 hover:scale-105">
-                        <img src="images/geauxride.png" alt="Geaux Ride Website" class="rounded-xl w-full h-48 object-cover mb-4">
-                        <h3 class="text-xl md:text-2xl font-bold">Geaux Ride</h3>
-                        <p class="mt-2 text-gray-700 dark:text-gray-400">A website for a ride-sharing service tailored to university students.</p>
-                        <a href="https://geaux-ride.vercel.app/?fbclid=PAZXh0bgNhZW0CMTEAAafRr8YUcUiGM8lQYlsYXWkffkR56mLcQpr_vPq_WI23KlUgLfUKIyUb_bO8CA_aem_jYvPpRraQIBGM13kVU4cJw" class="mt-4 inline-block bg-blue-600 text-white px-4 py-2 rounded-full hover:bg-blue-700 transition-colors duration-300">Learn More</a>
                     </div>
-
-                    <div class="bg-gray-100 dark:bg-[#161b22] rounded-2xl shadow-lg p-6 flex flex-col items-center text-center transition-transform duration-300 hover:scale-105">
-                        <img src="images/web-dev-project.png" alt="Web Development Project" class="rounded-xl w-full h-48 object-cover mb-4">
-                        <h3 class="text-xl md:text-2xl font-bold">Web Development Project</h3>
-                        <p class="mt-2 text-gray-700 dark:text-gray-400">A web-based application designed for efficient project management and collaboration among large teams.</p>
-                        <a href="https://example.com/web-dev-project" class="mt-4 inline-block bg-blue-600 text-white px-4 py-2 rounded-full hover:bg-blue-700 transition-colors duration-300">Learn More</a>
-                    </div>
-
-                    <div class="bg-gray-100 dark:bg-[#161b22] rounded-2xl shadow-lg p-6 flex flex-col items-center text-center transition-transform duration-300 hover:scale-105">
-                        <img src="images/mech-eng-project.jpg" alt="Mechanical Engineering Project" class="rounded-xl w-full h-48 object-cover mb-4">
-                        <h3 class="text-xl md:text-2xl font-bold">Mechanical Engineering</h3>
-                        <p class="mt-2 text-gray-700 dark:text-gray-400">A physical prototype of an automated system for resource allocation and management in a controlled environment.</p>
-                        <a href="https://example.com/mechanical-project" class="mt-4 inline-block bg-blue-600 text-white px-4 py-2 rounded-full hover:bg-blue-700 transition-colors duration-300">Learn More</a>
-                    </div>
-                    
-                    <div class="bg-gray-100 dark:bg-[#161b22] rounded-2xl shadow-lg p-6 flex flex-col items-center text-center transition-transform duration-300 hover:scale-105">
-                        <img src="images/double-t-charters.png" alt="Double T Charters" class="rounded-xl w-full h-48 object-cover mb-4">
-                        <h3 class="text-xl md:text-2xl font-bold">Double T Charters</h3>
-                        <p class="mt-2 text-gray-700 dark:text-gray-400">A custom website for a fishing charter business with booking and gallery features.</p>
-                        <a href="https://double-t.vercel.app/" class="mt-4 inline-block bg-blue-600 text-white px-4 py-2 rounded-full hover:bg-blue-700 transition-colors duration-300">Learn More</a>
-                    </div>
-
-                    <div class="bg-gray-100 dark:bg-[#161b22] rounded-2xl shadow-lg p-6 flex flex-col items-center text-center transition-transform duration-300 hover:scale-105">
-                        <img src="images/geaux-create.png" alt="Geaux Create" class="rounded-xl w-full h-48 object-cover mb-4">
-                        <h3 class="text-xl md:text-2xl font-bold">Geaux Create</h3>
-                        <p class="mt-2 text-gray-700 dark:text-gray-400">A portfolio platform for showcasing creative projects and collaborations.</p>
-                        <a href="https://g-create.vercel.app/" class="mt-4 inline-block bg-blue-600 text-white px-4 py-2 rounded-full hover:bg-blue-700 transition-colors duration-300">Learn More</a>
-                    </div>
-                    
-                </div>
             </div>
         </section>
     </main>
@@ -207,7 +205,6 @@
                 document.documentElement.classList.remove('light');
                 document.getElementById('sun-icon').classList.add('hidden');
                 document.getElementById('moon-icon').classList.remove('hidden');
-                // Apply dark banner class
                 sideBanner.classList.add('side-banner-dark');
                 sideBanner.classList.remove('side-banner-light');
             } else {
@@ -215,7 +212,6 @@
                 document.documentElement.classList.remove('dark');
                 document.getElementById('sun-icon').classList.remove('hidden');
                 document.getElementById('moon-icon').classList.add('hidden');
-                // Apply light banner class
                 sideBanner.classList.add('side-banner-light');
                 sideBanner.classList.remove('side-banner-dark');
             }
